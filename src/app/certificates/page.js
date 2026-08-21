@@ -138,7 +138,7 @@ export default function CertificatesPage() {
     };
 
     return (
-        <div style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden', height: '100vh', width: '100vw' }}>
+        <div className="certs-page-container" style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden', height: '100vh', width: '100%' }}>
             <Navbar />
             
             {/* Table of Contents / Sidebar Overlay */}
