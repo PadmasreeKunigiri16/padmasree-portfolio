@@ -80,7 +80,7 @@ export default function CertificatesPage() {
 
     const pageStyle = {
         flex: '0 0 100%',
-        minWidth: '100%',
+        width: '100%',
         height: '100%',
         scrollSnapAlign: 'start',
         overflowY: 'auto',
@@ -93,10 +93,10 @@ export default function CertificatesPage() {
 
     const renderCerts = (type) => {
         return (
-            <div style={{
+            <div className="certs-grid grid-collapse" style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-                gap: '1.5rem',
+                gap: '2rem',
                 width: '100%',
                 maxWidth: '1200px',
                 margin: '0 auto',

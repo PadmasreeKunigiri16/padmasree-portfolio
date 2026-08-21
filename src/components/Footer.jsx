@@ -9,9 +9,9 @@ export default function Footer() {
             position: 'relative',
             overflow: 'hidden',
         }}>
-            <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 4rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div className="footer-container">
                 {/* Left: Socials */}
-                <div>
+                <div className="footer-socials">
                     <h3 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Find me online:</h3>
                     <div style={{ display: 'flex', gap: '0.75rem' }}>
                         {/* GitHub */}
@@ -36,7 +36,7 @@ export default function Footer() {
                 </div>
 
                 {/* Right: Blurb */}
-                <div style={{ textAlign: 'right', maxWidth: '420px' }}>
+                <div className="footer-blurb">
                     <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.7' }}>
                         Crafted with care by <strong style={{ color: 'var(--text-primary)', fontWeight: '700' }}>Padmasree Kunigiri</strong> — a Full-Stack Developer who turns ideas into well-engineered, reliable products that people can trust.
                     </p>
@@ -45,8 +45,7 @@ export default function Footer() {
 
             {/* Massive stacked name — uses site text color */}
             <div style={{ width: '100%', overflow: 'hidden', marginTop: '5rem', lineHeight: '0.85' }}>
-                <h2 style={{
-                    fontSize: '17.5vw',
+                <h2 className="footer-massive-text" style={{
                     fontWeight: '900',
                     letterSpacing: '-0.04em',
                     textTransform: 'uppercase',
@@ -67,6 +66,41 @@ export default function Footer() {
                     © {new Date().getFullYear()} Padmasree Kunigiri. All rights reserved.
                 </p>
             </div>
+
+            <style jsx>{`
+                .footer-container {
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    padding: 0 4rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    gap: 3rem;
+                }
+                .footer-blurb {
+                    text-align: right;
+                    max-width: 420px;
+                }
+                .footer-massive-text {
+                    font-size: 17.5vw;
+                }
+                
+                @media (max-width: 768px) {
+                    .footer-container {
+                        flex-direction: column;
+                        padding: 0 1.5rem;
+                        align-items: flex-start;
+                    }
+                    .footer-blurb {
+                        text-align: left;
+                        max-width: 100%;
+                    }
+                    .footer-massive-text {
+                        font-size: 19vw;
+                        line-height: 0.95 !important;
+                    }
+                }
+            `}</style>
         </footer>
     );
 }

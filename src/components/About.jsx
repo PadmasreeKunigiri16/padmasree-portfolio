@@ -71,7 +71,7 @@ export default function About() {
 
     const pageStyle = {
         flex: '0 0 100%',
-        minWidth: '100%',
+        width: '100%',
         height: '100%',
         scrollSnapAlign: 'start',
         overflowY: 'hidden',
