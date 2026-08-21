@@ -39,7 +39,7 @@ export default function TechStack() {
                 pointerEvents: 'none', userSelect: 'none', zIndex: 0,
             }}>STACK</div>
 
-            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 4rem', position: 'relative', zIndex: 10 }}>
+            <div className="stack-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 4rem', position: 'relative', zIndex: 10 }}>
                 {/* Header row */}
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '3rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flex: 1 }}>
@@ -49,13 +49,13 @@ export default function TechStack() {
                 </div>
 
                 {/* Logo grid */}
-                <div style={{
+                <div className="stack-grid" style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
                     gap: '1rem',
                 }}>
                     {stack.map(tech => (
-                        <div key={tech.name} style={{
+                        <div key={tech.name} className="stack-card" style={{
                             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                             padding: '1.5rem 1rem',
                             border: '1px solid var(--border-color)',
@@ -68,7 +68,7 @@ export default function TechStack() {
                             onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--text-primary)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)'; }}
                             onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.boxShadow = 'none'; }}
                         >
-                            <img src={tech.logo} alt={tech.name} style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
+                            <img src={tech.logo} alt={tech.name} className="stack-logo" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
                             <span style={{ fontSize: '0.78rem', fontWeight: '600', color: 'var(--text-primary)', textAlign: 'center' }}>{tech.name}</span>
                         </div>
                     ))}
@@ -94,6 +94,30 @@ export default function TechStack() {
                     </Link>
                 </div>
             </div>
+
+            <style jsx>{`
+                @media (max-width: 768px) {
+                    .stack-container {
+                        padding: 0 1.5rem !important;
+                    }
+                    .stack-grid {
+                        grid-template-columns: repeat(3, 1fr) !important;
+                        gap: 0.5rem !important;
+                    }
+                    .stack-card {
+                        padding: 1rem 0.5rem !important;
+                        gap: 0.5rem !important;
+                        border-radius: 0.75rem !important;
+                    }
+                    .stack-logo {
+                        width: 30px !important;
+                        height: 30px !important;
+                    }
+                    .stack-card span {
+                        font-size: 0.65rem !important;
+                    }
+                }
+            `}</style>
         </section>
     );
 }
