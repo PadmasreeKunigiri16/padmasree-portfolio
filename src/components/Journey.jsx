@@ -1,4 +1,5 @@
 'use client';
+import { useRef } from 'react';
 
 export default function Journey({ isBookLayout }) {
     const journeyData = [
@@ -28,6 +29,18 @@ export default function Journey({ isBookLayout }) {
         }
     ];
 
+    const listRef = useRef(null);
+
+    const scrollList = (direction) => {
+        if (listRef.current) {
+            const scrollAmount = 300;
+            listRef.current.scrollBy({
+                top: direction === 'down' ? scrollAmount : -scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <div style={{ display: 'flex', flexDirection: 'column', height: isBookLayout ? '100%' : 'auto', overflow: 'hidden' }}>
             <div className="journey-header" style={{ flexShrink: 0 }}>
@@ -39,14 +52,18 @@ export default function Journey({ isBookLayout }) {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', background: 'rgba(0,0,0,0.02)', padding: '0.4rem 1rem', borderRadius: '2rem', border: '1px solid var(--border-color)' }}>
                         <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: '600' }}>Scroll</span>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.15rem' }}>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            <button onClick={() => scrollList('up')} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.2rem', color: 'inherit' }} title="Scroll Up">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                            </button>
+                            <button onClick={() => scrollList('down')} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.2rem', color: 'inherit' }} title="Scroll Down">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="journey-list" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflowY: 'auto' }}>
+            <div ref={listRef} className="journey-list hide-scrollbar" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflowY: 'auto', scrollBehavior: 'smooth' }}>
                 {journeyData.map((item, index) => (
                     <div key={index} className="animate-up" style={{ 
                         display: 'flex', 
