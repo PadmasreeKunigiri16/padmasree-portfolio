@@ -322,7 +322,7 @@ export default function About() {
                 </section>
 
                 {/* 8. FOOTER */}
-                <section id="footer" style={{ ...pageStyle, overflowY: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <section id="footer" style={{ ...pageStyle, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <div style={{ flexGrow: 1 }} />
                     <Footer />
                 </section>

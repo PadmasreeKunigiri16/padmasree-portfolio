@@ -83,7 +83,7 @@ export default function Footer() {
                     max-width: 420px;
                 }
                 .footer-massive-text {
-                    font-size: 17.5vw;
+                    font-size: 11.5vw;
                 }
                 
                 @media (max-width: 768px) {
@@ -97,7 +97,7 @@ export default function Footer() {
                         max-width: 100%;
                     }
                     .footer-massive-text {
-                        font-size: 16vw !important;
+                        font-size: 11.5vw !important;
                         line-height: 0.95 !important;
                     }
                 }
