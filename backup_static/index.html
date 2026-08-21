@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <meta name="description" content="Personal Portfolio Website">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <!-- SVG Logo placeholder -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <nav class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#blog">Blog</a>
+        </nav>
+        <a href="#contact" class="btn btn-outline">Let's Talk →</a>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">200+</span>
+                    <span class="stat-label">Project completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">50+</span>
+                    <span class="stat-label">Happy clients</span>
+                </div>
+            </div>
+            <div class="hero-content flex-between">
+                <div class="hero-text animate-up">
+                    <h1 class="hero-title">Hello</h1>
+                    <p class="hero-subtitle">— I'm David, a UI/UX Designer based in NY</p>
+                </div>
+                <div class="hero-image-wrapper animate-up" style="animation-delay: 0.2s;">
+                    <img src="public/Padu%20Background%20Removed.png" alt="Padu Portrait" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-grid">
+                <div class="about-text animate-up">
+                    <h2 class="section-title">About Me</h2>
+                    <p>I am a passionate UI/UX designer with a strong background in creating intuitive and visually appealing digital experiences. My journey in design started with a deep curiosity for how people interact with technology, leading me to specialize in user-centric solutions.</p>
+                    <div class="about-arrow">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="about-stats-card animate-up" style="animation-delay: 0.1s;">
+                    <div class="card-header">
+                        <div class="icon-circle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="huge-text">120%</h3>
+                    <p class="small-text">Overall engagement metrics increased across all our clients' platforms.</p>
+                    <div class="about-images">
+                        <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/about_portrait_color_1787246671116.jpg" alt="David Smiling" class="about-img-main">
+                        <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/about_portrait_bw_1787246657419.jpg" alt="David BW" class="about-img-sub">
+                    </div>
+                </div>
+                
+                <div class="about-features animate-up" style="animation-delay: 0.2s;">
+                    <div class="feature-item">
+                        <div class="feature-icon">▶</div>
+                        <p class="feature-text">With a focus on user research and prototyping, I craft designs that not only look great but also drive meaningful engagement and business results.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">▶</div>
+                        <p class="feature-text">I believe in the power of collaboration and iterative design, constantly seeking feedback to refine my work and ensure it meets the highest standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services/Portfolio row -->
+        <section class="portfolio-grid" id="services">
+            <div class="portfolio-cards grid-3">
+                <div class="portfolio-card animate-up">
+                    <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/portfolio_1_1787246683677.jpg" alt="Portfolio 1">
+                    <h4>Hello Digital Agency website</h4>
+                </div>
+                <div class="portfolio-card animate-up" style="animation-delay: 0.1s;">
+                    <div class="portfolio-card-inner">
+                        <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/portfolio_2_1787246696716.jpg" alt="Portfolio 2">
+                        <div class="portfolio-overlay">
+                            <span class="icon-arrow">↗</span>
+                        </div>
+                    </div>
+                    <h4>Halo Digital Agency website</h4>
+                </div>
+                <div class="portfolio-card animate-up" style="animation-delay: 0.2s;">
+                    <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/portfolio_3_1787246730195.jpg" alt="Portfolio 3">
+                    <h4>Digital Agency website</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Journey -->
+        <section class="journey" id="work">
+            <div class="journey-header flex-between section-header animate-up">
+                <h2 class="section-title">Explore My Design<br>Journey</h2>
+                <div class="journey-desc">
+                    <p>Driven by a passion for intuitive design and robust systems. Here is a timeline of my professional experience in the field.</p>
+                </div>
+            </div>
+            
+            <div class="journey-list">
+                <div class="journey-item animate-up">
+                    <div class="journey-role">
+                        <h3>Creative Minds New York, USA</h3>
+                        <span class="journey-date">Feb 2020 - Present</span>
+                    </div>
+                    <div class="journey-details">
+                        <p>Lead UI/UX Designer</p>
+                    </div>
+                    <div class="journey-tags">
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Branding</span>
+                    </div>
+                </div>
+                
+                <div class="journey-item animate-up">
+                    <div class="journey-role">
+                        <h3>Innovative Designs Inc, USA</h3>
+                        <span class="journey-date">Aug 2018 - Jan 2020</span>
+                    </div>
+                    <div class="journey-details">
+                        <p>Senior Product Designer</p>
+                    </div>
+                    <div class="journey-tags">
+                        <span class="tag">Web</span>
+                        <span class="tag">Product</span>
+                    </div>
+                </div>
+                
+                <div class="journey-item animate-up active">
+                    <div class="journey-role">
+                        <h3>Agile Consultant, Germany</h3>
+                        <span class="journey-date">Feb 2016 - Jul 2018</span>
+                    </div>
+                    <div class="journey-details">
+                        <p>With a strong emphasis on user research and strategy, I combined cross-functional teams to deliver exceptional designs for top clients worldwide.</p>
+                        <div class="journey-images">
+                            <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/portfolio_1_1787246683677.jpg" alt="Work 1">
+                            <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/portfolio_2_1787246696716.jpg" alt="Work 2">
+                            <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/portfolio_3_1787246730195.jpg" alt="Work 3">
+                        </div>
+                    </div>
+                    <div class="journey-tags">
+                        <div class="icon-circle dark">↗</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner animate-up">
+             <div class="cta-inner" style="background-image: url('/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/cta_bg_1787246742982.jpg');">
+                 <div class="cta-content">
+                     <h2>Exclusive Winter Deal Days Get a<br>Free Consultation!</h2>
+                     <p>Unlock the potential of your project with a complimentary strategy session. Offer valid until December 31st.</p>
+                     <a href="#contact" class="btn btn-outline-light">Book Now</a>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Latest Works -->
+        <section class="latest-works">
+            <h2 class="section-title text-center animate-up">Latest Works</h2>
+            <div class="portfolio-cards grid-3">
+                <div class="portfolio-card animate-up">
+                    <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/latest_work_1_1787246774635.jpg" alt="Latest 1">
+                    <h4>The Dark Agency website</h4>
+                </div>
+                <div class="portfolio-card animate-up" style="animation-delay: 0.1s;">
+                    <div class="portfolio-card-inner">
+                        <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/latest_work_2_1787246787616.jpg" alt="Latest 2">
+                        <div class="portfolio-overlay">
+                            <span class="icon-arrow">↗</span>
+                        </div>
+                    </div>
+                    <h4>The Color Agency website</h4>
+                </div>
+                <div class="portfolio-card animate-up" style="animation-delay: 0.2s;">
+                    <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/latest_work_3_1787246799811.jpg" alt="Latest 3">
+                    <h4>The Block Agency website</h4>
+                </div>
+            </div>
+            <div class="text-center mt-2 animate-up">
+                <a href="#work" class="btn btn-outline">View More →</a>
+            </div>
+        </section>
+
+        <!-- Insights & Trends -->
+        <section class="insights" id="blog">
+            <h2 class="section-title text-center animate-up">Design Insights & Trends</h2>
+            <div class="grid-3">
+                <div class="blog-card animate-up">
+                    <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/blog_1_1787246835315.jpg" alt="Blog 1">
+                    <div class="blog-meta">
+                        <span class="tag dark-tag">UI/UX</span>
+                        <span class="blog-date">10 Oct 2023</span>
+                    </div>
+                    <h4>Understanding the Importance of Visual Hierarchy</h4>
+                </div>
+                <div class="blog-card animate-up" style="animation-delay: 0.1s;">
+                    <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/blog_2_1787246849273.jpg" alt="Blog 2">
+                    <div class="blog-meta">
+                        <span class="tag dark-tag">Design</span>
+                        <span class="blog-date">12 Oct 2023</span>
+                    </div>
+                    <h4>Integrating AI into your Design Workflow</h4>
+                </div>
+                <div class="blog-card animate-up" style="animation-delay: 0.2s;">
+                    <img src="/Users/saidheeraj/.gemini/antigravity-ide/brain/819048a7-5be9-419c-82b1-1b3a41240328/blog_3_1787246862067.jpg" alt="Blog 3">
+                    <div class="blog-meta">
+                        <span class="tag dark-tag">Branding</span>
+                        <span class="blog-date">15 Oct 2023</span>
+                    </div>
+                    <h4>Color Psychology in Modern Brand Identity</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-cta">
+            <h2>Got a Vision? Let's Bring It to Life!</h2>
+            <p>I'm always excited to discuss new projects, creative ideas, or opportunities to be part of your visions.</p>
+            <a href="mailto:hello@dnova.com" class="btn btn-dark">Let's Talk →</a>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Blog</a>
+            </div>
+            <a href="mailto:hello@dnova.com" class="footer-email">hello@dnova.com</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
