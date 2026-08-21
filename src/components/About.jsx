@@ -85,7 +85,7 @@ export default function About() {
     };
 
     return (
-        <div style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden' }}>
+        <div style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden', height: '100vh', width: '100vw' }}>
             
             {/* Table of Contents / Sidebar Overlay */}
             <nav className="toc-nav" style={{
