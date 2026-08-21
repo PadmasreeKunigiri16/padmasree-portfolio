@@ -79,8 +79,8 @@ export default function CertificatesPage() {
     };
 
     const pageStyle = {
-        flex: '0 0 100%',
-        width: '100%',
+        flex: '0 0 100vw',
+        width: '100vw',
         height: '100%',
         scrollSnapAlign: 'start',
         overflowY: 'auto',
@@ -138,7 +138,7 @@ export default function CertificatesPage() {
     };
 
     return (
-        <div className="certs-page-container" style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden', height: '100vh', width: '100%' }}>
+        <div className="certs-page-container" style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden', height: '100vh', width: '100vw' }}>
             <Navbar />
             
             {/* Table of Contents / Sidebar Overlay */}
