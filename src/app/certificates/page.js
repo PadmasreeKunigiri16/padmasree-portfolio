@@ -28,6 +28,7 @@ export default function CertificatesPage() {
 
     const [activeChapter, setActiveChapter] = useState('cover');
     const [navVisible, setNavVisible] = useState(true);
+    const [selectedPdf, setSelectedPdf] = useState(null);
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -136,17 +137,18 @@ export default function CertificatesPage() {
                                 <span style={{ fontSize: '0.85rem', fontWeight: '900', color: 'var(--text-primary)' }}>{cert.issuer}</span>
                             </div>
                             {cert.file && (
-                                <a href={cert.file} target="_blank" rel="noopener noreferrer" style={{
+                                <button onClick={(e) => { e.preventDefault(); setSelectedPdf(cert.file); }} style={{
                                     fontSize: '0.7rem', fontWeight: '700', letterSpacing: '0.05em', textTransform: 'uppercase',
                                     color: 'var(--bg-primary)', backgroundColor: 'var(--text-primary)',
                                     padding: '0.35rem 0.85rem', borderRadius: '2rem', textDecoration: 'none',
+                                    border: 'none', cursor: 'pointer',
                                     transition: 'transform 0.2s ease, opacity 0.2s ease'
                                 }}
                                 onMouseEnter={e => { e.currentTarget.style.opacity = '0.8'; e.currentTarget.style.transform = 'scale(1.05)'; }}
                                 onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'scale(1)'; }}
                                 >
                                     View
-                                </a>
+                                </button>
                             )}
                         </div>
                     </div>
@@ -281,6 +283,25 @@ export default function CertificatesPage() {
                     </div>
                 </section>
             </div>
+
+            {selectedPdf && (
+                <div style={{
+                    position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+                    backgroundColor: 'rgba(0,0,0,0.8)', zIndex: 9999,
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                    backdropFilter: 'blur(10px)'
+                }}>
+                    <div style={{ width: '90%', maxWidth: '1000px', height: '85vh', backgroundColor: 'var(--bg-primary)', borderRadius: '1rem', overflow: 'hidden', position: 'relative', display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <span style={{ fontWeight: '800', fontSize: '1.2rem', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>Certificate Viewer</span>
+                            <button onClick={() => setSelectedPdf(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem', borderRadius: '50%', transition: 'background 0.2s ease' }} onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.05)'} onMouseLeave={e => e.currentTarget.style.background = 'none'}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                        </div>
+                        <iframe src={selectedPdf} style={{ width: '100%', flexGrow: 1, border: 'none' }} title="Certificate PDF" />
+                    </div>
+                </div>
+            )}
 
             <style>{`
                 .hide-scrollbar::-webkit-scrollbar {
