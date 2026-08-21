@@ -8,9 +8,9 @@ const certs = [
     { title: "AWS Certified Developer", category: "Cloud Development", issuer: "AWS", type: "cloud", file: "/AWS Certified Developer - Associate certificate.pdf" },
     { title: "AWS Certified AI Practitioner", category: "Artificial Intelligence", issuer: "AWS", type: "ai", file: "/AWS Certified AI Practitioner certificate.pdf" },
     { title: "AWS Certified Cloud Practitioner", category: "Cloud Foundations", issuer: "AWS", type: "cloud", file: "/AWS Certified Cloud Practitioner certificate.pdf" },
-    { title: "Google Cloud Digital Leader", category: "Cloud Foundations", issuer: "Google", type: "cloud" },
+    { title: "Google Cloud Digital Leader", category: "Cloud Foundations", issuer: "Google", type: "cloud", file: "/Google cloud.jpeg" },
     { title: "Oracle Agentic AI Certified Foundations Associate", category: "Artificial Intelligence", issuer: "Oracle", type: "ai" },
-    { title: "Oracle Java Certification", category: "Software Engineering", issuer: "Oracle", type: "software" },
+    { title: "Oracle Java Certification", category: "Software Engineering", issuer: "Oracle", type: "software", file: "/oracle java.jpeg" },
     { title: "Getting Started with Enterprise-grade AI", category: "Artificial Intelligence", issuer: "IBM", type: "ai" },
     { title: "Cybersecurity Analyst Job Simulation", category: "Security", issuer: "Forage (TATA)", type: "software" },
     { title: "Cambridge Lingua Skills – B2", category: "Language", issuer: "Cambridge", type: "software" }
@@ -292,13 +292,19 @@ export default function CertificatesPage() {
                     backdropFilter: 'blur(10px)'
                 }}>
                     <div style={{ width: '90%', maxWidth: '1000px', height: '85vh', backgroundColor: 'var(--bg-primary)', borderRadius: '1rem', overflow: 'hidden', position: 'relative', display: 'flex', flexDirection: 'column' }}>
-                        <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
                             <span style={{ fontWeight: '800', fontSize: '1.2rem', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>Certificate Viewer</span>
                             <button onClick={() => setSelectedPdf(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem', borderRadius: '50%', transition: 'background 0.2s ease' }} onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.05)'} onMouseLeave={e => e.currentTarget.style.background = 'none'}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </button>
                         </div>
-                        <iframe src={selectedPdf} style={{ width: '100%', flexGrow: 1, border: 'none' }} title="Certificate PDF" />
+                        <div style={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', backgroundColor: 'var(--bg-secondary)' }}>
+                            {selectedPdf.toLowerCase().endsWith('.pdf') ? (
+                                <iframe src={selectedPdf} style={{ width: '100%', height: '100%', border: 'none' }} title="Certificate Viewer" />
+                            ) : (
+                                <img src={selectedPdf} alt="Certificate" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', padding: '1rem' }} />
+                            )}
+                        </div>
                     </div>
                 </div>
             )}
