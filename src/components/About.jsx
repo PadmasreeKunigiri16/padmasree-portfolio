@@ -70,8 +70,11 @@ export default function About() {
     };
 
     const pageStyle = {
-        flex: '0 0 100%',
-        width: '100%',
+        flex: 'none',
+        flexShrink: 0,
+        width: '100vw',
+        minWidth: '100vw',
+        maxWidth: '100vw',
         height: '100%',
         scrollSnapAlign: 'start',
         overflowY: 'hidden',
