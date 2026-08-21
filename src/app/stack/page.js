@@ -173,7 +173,7 @@ export default function StackPage() {
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                                     <div>
                                         <div style={{ fontSize: '0.7rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                            <span style={{ color: '#3b82f6' }}>■</span> Why Padma chose this
+                                            <span style={{ color: '#3b82f6' }}>■</span> Why I chose this
                                         </div>
                                         <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{tech.whyChose}</p>
                                     </div>
