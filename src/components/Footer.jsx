@@ -55,6 +55,7 @@ export default function Footer() {
                     padding: 0,
                     userSelect: 'none',
                     whiteSpace: 'nowrap',
+                    width: '100%',
                 }}>
                     PADMASREE<br />KUNIGIRI
                 </h2>
@@ -96,7 +97,7 @@ export default function Footer() {
                         max-width: 100%;
                     }
                     .footer-massive-text {
-                        font-size: 19vw;
+                        font-size: 16vw !important;
                         line-height: 0.95 !important;
                     }
                 }

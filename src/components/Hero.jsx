@@ -2,7 +2,7 @@
 
 export default function Hero() {
     return (
-        <section id="home" style={{ 
+        <section id="home" className="hero-section" style={{ 
             height: '100vh',
             backgroundColor: 'var(--bg-primary)',
             position: 'relative',
@@ -13,28 +13,30 @@ export default function Hero() {
             margin: 0,
         }}>
             
+            <div className="hero-text-wrapper">
+                <div className="hero-bio">
+                    <p>
+                        Specialized in scalable web<br />architecture, QA automation,<br />and intelligent AI integrations.
+                    </p>
+                </div>
+
+                <div className="hero-bottom-left">
+                    <div>I AM</div>
+                    <div>PADMASREE</div>
+                </div>
+
+                <div className="hero-bottom-right">
+                    <div style={{ letterSpacing: '0.1em' }}>FULL-STACK</div>
+                    <div style={{ letterSpacing: '0.15em' }}>WEB DEVELOPER</div>
+                </div>
+            </div>
+
             <div className="hero-image-container">
                 <img 
                     src="/Padu Background Removed.png" 
                     alt="Padmasree Portrait" 
                     className="hero-image"
                 />
-            </div>
-
-            <div className="hero-bio">
-                <p>
-                    Specialized in scalable web<br />architecture, QA automation,<br />and intelligent AI integrations.
-                </p>
-            </div>
-
-            <div className="hero-bottom-left">
-                <div>I AM</div>
-                <div>PADMASREE</div>
-            </div>
-
-            <div className="hero-bottom-right">
-                <div style={{ letterSpacing: '0.1em' }}>FULL-STACK</div>
-                <div style={{ letterSpacing: '0.15em' }}>WEB DEVELOPER</div>
             </div>
 
             <style jsx>{`
@@ -106,45 +108,58 @@ export default function Hero() {
 
                 /* Mobile Optimizations */
                 @media (max-width: 768px) {
+                    .hero-section {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        justify-content: flex-end !important;
+                        padding-top: 5rem !important;
+                    }
+                    .hero-text-wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                        gap: 1.5rem;
+                        z-index: 30;
+                        padding: 0 1.5rem;
+                        margin-bottom: auto;
+                        margin-top: 2rem;
+                    }
+                    .hero-image-container {
+                        position: relative !important;
+                        height: 50vh !important;
+                        z-index: 10;
+                    }
                     .hero-image {
-                        height: 90%;
+                        height: 100%;
                         transform: translateX(0);
                     }
-                    /* Put text ON TOP of image on mobile */
-                    .hero-bottom-left, .hero-bottom-right {
-                        z-index: 30;
-                        font-size: 13vw; 
-                        line-height: 0.85;
-                        color: var(--text-primary);
-                        /* Add a white outline/glow so black text is readable over dark hair */
-                        text-shadow: 
-                            -1px -1px 0 var(--bg-primary),
-                             1px -1px 0 var(--bg-primary),
-                            -1px  1px 0 var(--bg-primary),
-                             1px  1px 0 var(--bg-primary),
-                             0 0 15px var(--bg-primary),
-                             0 0 30px var(--bg-primary);
+                    
+                    /* Reset absolute positioning for text */
+                    .hero-bottom-left, .hero-bottom-right, .hero-bio {
+                        position: relative !important;
+                        top: auto !important;
+                        bottom: auto !important;
+                        left: auto !important;
+                        right: auto !important;
+                        text-align: center !important;
+                        text-shadow: none !important; /* REMOVE GLOW */
+                        max-width: 100% !important;
                     }
                     .hero-bottom-left {
-                        bottom: 12%;
-                        left: 5%;
+                        font-size: 11vw !important;
+                        line-height: 0.9 !important;
                     }
                     .hero-bottom-right {
-                        bottom: 3%;
-                        right: 5%;
-                        font-size: 8vw;
-                    }
-                    .hero-bio {
-                        top: 15%;
-                        right: 5%;
-                        max-width: 180px;
-                        text-align: right;
+                        font-size: 6vw !important;
+                        line-height: 1.1 !important;
+                        color: var(--text-secondary) !important;
                     }
                     .hero-bio p {
-                        font-size: 0.85rem;
-                        color: var(--text-primary);
-                        font-weight: 600;
-                        text-shadow: 0 0 10px var(--bg-primary);
+                        font-size: 0.9rem !important;
+                        color: var(--text-primary) !important;
+                        font-weight: 600 !important;
+                        text-shadow: none !important;
                     }
                 }
             `}</style>

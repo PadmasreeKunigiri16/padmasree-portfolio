@@ -2,13 +2,7 @@
 
 export default function CtaBanner() {
     return (
-        <section style={{
-            backgroundColor: 'var(--bg-primary)',
-            padding: '8rem 4rem',
-            position: 'relative',
-            overflow: 'hidden',
-            borderTop: '1px solid var(--border-color)',
-        }}>
+        <section className="cta-section">
             {/* Faint watermark */}
             <div style={{
                 position: 'absolute',
@@ -27,16 +21,7 @@ export default function CtaBanner() {
                 CONNECT
             </div>
 
-            <div style={{
-                maxWidth: '900px',
-                margin: '0 auto',
-                position: 'relative',
-                zIndex: 10,
-                display: 'grid',
-                gridTemplateColumns: '1fr auto',
-                alignItems: 'center',
-                gap: '4rem',
-            }}>
+            <div className="cta-container">
                 {/* Left: Text */}
                 <div>
                     <span style={{
@@ -89,6 +74,7 @@ export default function CtaBanner() {
                             textDecoration: 'none',
                             transition: 'opacity 0.2s ease',
                             whiteSpace: 'nowrap',
+                            justifyContent: 'center',
                         }}
                         onMouseEnter={e => e.currentTarget.style.opacity = '0.8'}
                         onMouseLeave={e => e.currentTarget.style.opacity = '1'}
@@ -104,22 +90,57 @@ export default function CtaBanner() {
                             padding: '1rem 2rem',
                             background: 'transparent',
                             color: 'var(--text-primary)',
-                            border: '1.5px solid var(--border-color)',
+                            border: '1px solid var(--border-color)',
                             borderRadius: '3rem',
                             fontWeight: '600',
                             fontSize: '0.95rem',
                             textDecoration: 'none',
-                            transition: 'border-color 0.2s ease, background 0.2s ease',
+                            transition: 'background 0.2s ease',
                             whiteSpace: 'nowrap',
+                            justifyContent: 'center',
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--text-primary)'; }}
-                        onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-color)'; }}
+                        onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.02)'}
+                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                     >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         LinkedIn
                     </a>
                 </div>
             </div>
+
+            <style jsx>{`
+                .cta-section {
+                    background-color: var(--bg-primary);
+                    padding: 8rem 4rem;
+                    position: relative;
+                    overflow: hidden;
+                    border-top: 1px solid var(--border-color);
+                }
+                .cta-container {
+                    max-width: 900px;
+                    margin: 0 auto;
+                    position: relative;
+                    z-index: 10;
+                    display: grid;
+                    grid-template-columns: 1fr auto;
+                    align-items: center;
+                    gap: 4rem;
+                }
+
+                @media (max-width: 768px) {
+                    .cta-section {
+                        padding: 5rem 1.5rem !important;
+                    }
+                    .cta-container {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                        text-align: center;
+                    }
+                    .cta-container p {
+                        margin: 0 auto;
+                    }
+                }
+            `}</style>
         </section>
     );
 }
