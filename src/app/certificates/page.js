@@ -5,9 +5,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const certs = [
-    { title: "AWS Certified Developer", category: "Cloud Development", issuer: "AWS", type: "cloud" },
-    { title: "AWS Certified AI Practitioner", category: "Artificial Intelligence", issuer: "AWS", type: "ai" },
-    { title: "AWS Certified Cloud Practitioner", category: "Cloud Foundations", issuer: "AWS", type: "cloud" },
+    { title: "AWS Certified Developer", category: "Cloud Development", issuer: "AWS", type: "cloud", file: "/AWS Certified Developer - Associate certificate.pdf" },
+    { title: "AWS Certified AI Practitioner", category: "Artificial Intelligence", issuer: "AWS", type: "ai", file: "/AWS Certified AI Practitioner certificate.pdf" },
+    { title: "AWS Certified Cloud Practitioner", category: "Cloud Foundations", issuer: "AWS", type: "cloud", file: "/AWS Certified Cloud Practitioner certificate.pdf" },
     { title: "Google Cloud Digital Leader", category: "Cloud Foundations", issuer: "Google", type: "cloud" },
     { title: "Oracle Agentic AI Certified Foundations Associate", category: "Artificial Intelligence", issuer: "Oracle", type: "ai" },
     { title: "Oracle Java Certification", category: "Software Engineering", issuer: "Oracle", type: "software" },
@@ -130,9 +130,24 @@ export default function CertificatesPage() {
                                 {cert.title}
                             </h4>
                         </div>
-                        <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <span style={{ fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>ISSUED BY</span>
-                            <span style={{ fontSize: '0.85rem', fontWeight: '900', color: 'var(--text-primary)' }}>{cert.issuer}</span>
+                        <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                <span style={{ fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>ISSUED BY</span>
+                                <span style={{ fontSize: '0.85rem', fontWeight: '900', color: 'var(--text-primary)' }}>{cert.issuer}</span>
+                            </div>
+                            {cert.file && (
+                                <a href={cert.file} target="_blank" rel="noopener noreferrer" style={{
+                                    fontSize: '0.7rem', fontWeight: '700', letterSpacing: '0.05em', textTransform: 'uppercase',
+                                    color: 'var(--bg-primary)', backgroundColor: 'var(--text-primary)',
+                                    padding: '0.35rem 0.85rem', borderRadius: '2rem', textDecoration: 'none',
+                                    transition: 'transform 0.2s ease, opacity 0.2s ease'
+                                }}
+                                onMouseEnter={e => { e.currentTarget.style.opacity = '0.8'; e.currentTarget.style.transform = 'scale(1.05)'; }}
+                                onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'scale(1)'; }}
+                                >
+                                    View
+                                </a>
+                            )}
                         </div>
                     </div>
                 ))}
