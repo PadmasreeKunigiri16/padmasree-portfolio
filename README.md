@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Padmasree Kunigiri | Premium Portfolio
 
-## Getting Started
+Welcome to the source code for my personal portfolio — an editorial, highly interactive, and premium web experience built to showcase my journey, projects, and philosophy in software engineering and AI/ML.
 
-First, run the development server:
+## 🌟 Vision & Design Philosophy
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This portfolio departs from the standard web layout to deliver an **"Art Exhibit" experience**. It features massive typography, smooth horizontal snap-scrolling interfaces, and deliberate whitespace. It is designed not just to be read, but to be *experienced*. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Every detail — from clean architecture to pixel-perfect UI — is aimed at turning ambitious ideas into products people can trust.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is built using modern, reliable technologies:
 
-## Learn More
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+- **Library:** [React 18](https://reactjs.org/)
+- **Styling:** Vanilla CSS (Global Tokens, CSS Grid, Flexbox)
+- **Security:** Strict HTTP Headers (CSP, X-Frame-Options, HSTS)
 
-To learn more about Next.js, take a look at the following resources:
+### Why this stack?
+I don't use technologies just because they're trendy. This stack was selected because it is perfectly suited for modern development — offering SSR (Server-Side Rendering) for SEO, flawless performance, and deep ecosystem support without relying on bloated dependency trees.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛡️ Security Hardening
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Security is treated as a first-class citizen. The application is locked down via `next.config.mjs` with:
+- **Strict Content-Security-Policy (CSP)** to prevent XSS.
+- **X-Frame-Options (DENY)** to eliminate Clickjacking.
+- **Strict-Transport-Security (HSTS)** to enforce HTTPS.
+- **Permissions-Policy** to block unauthorized access to hardware.
 
-## Deploy on Vercel
+## 🛠️ Local Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To run this project locally, follow these steps:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SaiDheeraj-19/padmasree-portfolio.git
+   cd padmasree-portfolio
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📂 Project Structure
+
+- `/src/app` - Next.js App Router pages (`/about`, `/certificates`, `/projects`, etc).
+- `/src/components` - Reusable React components (`Navbar`, `Hero`, `About`, `Journey`, etc).
+- `/public` - Static assets and media.
+
+## 📫 Let's Connect
+
+I'm actively seeking opportunities in Full Stack Development, Software Testing, and AI/ML integrations. Let's connect and create something great.
+
+- **LinkedIn:** [Padmasree Kunigiri](https://www.linkedin.com/in/padmasree-kunigiri-19859630a/)
+- **Email:** kunigiripadmasri16@gmail.com
+
+---
+*Designed & Engineered by Padmasree Kunigiri.*
