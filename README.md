@@ -4,7 +4,7 @@ Welcome to the source code for my personal portfolio — an editorial, highly in
 
 ## 🌟 Vision & Design Philosophy
 
-This portfolio departs from the standard web layout to deliver an **"Art Exhibit" experience**. It features massive typography, smooth horizontal snap-scrolling interfaces, and deliberate whitespace. It is designed not just to be read, but to be *experienced*. 
+This portfolio departs from the standard web layout to deliver an **"Art Exhibit" experience**. It features massive typography, smooth horizontal snap-scrolling interfaces, and deliberate whitespace. It is designed not just to be read, but to be _experienced_.
 
 Every detail — from clean architecture to pixel-perfect UI — is aimed at turning ambitious ideas into products people can trust.
 
@@ -17,6 +17,7 @@ This project is built using modern, reliable technologies:
 - **Styling:** Vanilla CSS (Global Tokens, CSS Grid, Flexbox)
 
 ### Why this stack?
+
 I don't use technologies just because they're trendy. This stack was selected because it is perfectly suited for modern development — offering SSR (Server-Side Rendering) for SEO, flawless performance, and deep ecosystem support without relying on bloated dependency trees.
 
 ## 📫 Let's Connect
@@ -27,4 +28,5 @@ I'm actively seeking opportunities in Full Stack Development, Software Testing, 
 - **Email:** kunigiripadmasri16@gmail.com
 
 ---
-*Designed & Engineered by Padmasree Kunigiri.*
+
+_Designed & Engineered by Padmasree Kunigiri._
