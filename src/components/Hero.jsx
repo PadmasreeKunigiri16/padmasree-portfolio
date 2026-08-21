@@ -135,25 +135,9 @@ export default function Hero() {
                         text-shadow: none !important; /* No glow */
                     }
 
-                    /* FULL-STACK WEB DEV: smaller, centered, in front of portrait */
+                    /* Hide FULL-STACK WEB DEV on mobile */
                     .hero-bottom-right {
-                        position: absolute !important;
-                        bottom: 5% !important;
-                        left: 50% !important;
-                        right: auto !important;
-                        transform: translateX(-50%) !important;
-                        width: 100% !important;
-                        text-align: center !important;
-                        font-size: 7.5vw !important;
-                        z-index: 30 !important; /* IN FRONT OF IMAGE */
-                        color: var(--text-primary) !important;
-                        text-shadow: none !important;
-                        background: rgba(255, 255, 255, 0.4);
-                        backdrop-filter: blur(10px);
-                        -webkit-backdrop-filter: blur(10px);
-                        padding: 1rem 0;
-                        border-top: 1px solid rgba(0,0,0,0.1);
-                        border-bottom: 1px solid rgba(0,0,0,0.1);
+                        display: none !important;
                     }
 
                     /* Hide bio on mobile for clean editorial look */
