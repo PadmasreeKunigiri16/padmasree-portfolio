@@ -13,22 +13,20 @@ export default function Hero() {
             margin: 0,
         }}>
             
-            <div className="hero-text-wrapper">
-                <div className="hero-bio">
-                    <p>
-                        Specialized in scalable web<br />architecture, QA automation,<br />and intelligent AI integrations.
-                    </p>
-                </div>
+            <div className="hero-bio">
+                <p>
+                    Specialized in scalable web<br />architecture, QA automation,<br />and intelligent AI integrations.
+                </p>
+            </div>
 
-                <div className="hero-bottom-left">
-                    <div>I AM</div>
-                    <div>PADMASREE</div>
-                </div>
+            <div className="hero-bottom-left">
+                <div>I AM</div>
+                <div>PADMASREE</div>
+            </div>
 
-                <div className="hero-bottom-right">
-                    <div style={{ letterSpacing: '0.1em' }}>FULL-STACK</div>
-                    <div style={{ letterSpacing: '0.15em' }}>WEB DEVELOPER</div>
-                </div>
+            <div className="hero-bottom-right">
+                <div style={{ letterSpacing: '0.1em' }}>FULL-STACK</div>
+                <div style={{ letterSpacing: '0.15em' }}>WEB DEVELOPER</div>
             </div>
 
             <div className="hero-image-container">
@@ -106,60 +104,61 @@ export default function Hero() {
                     font-size: clamp(2rem, 3.5vw, 4rem);
                 }
 
-                /* Mobile Optimizations */
+                /* Mobile Optimizations - Premium Editorial Magazine Look */
                 @media (max-width: 768px) {
                     .hero-section {
-                        display: flex !important;
-                        flex-direction: column !important;
-                        justify-content: flex-end !important;
-                        padding-top: 5rem !important;
-                    }
-                    .hero-text-wrapper {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        text-align: center;
-                        gap: 1.5rem;
-                        z-index: 30;
-                        padding: 0 1.5rem;
-                        margin-bottom: auto;
-                        margin-top: 2rem;
+                        display: block !important;
                     }
                     .hero-image-container {
-                        position: relative !important;
-                        height: 50vh !important;
-                        z-index: 10;
+                        position: absolute !important;
+                        height: 75vh !important;
+                        bottom: 0 !important;
+                        z-index: 20;
                     }
                     .hero-image {
                         height: 100%;
                         transform: translateX(0);
                     }
                     
-                    /* Reset absolute positioning for text */
-                    .hero-bottom-left, .hero-bottom-right, .hero-bio {
-                        position: relative !important;
-                        top: auto !important;
-                        bottom: auto !important;
-                        left: auto !important;
-                        right: auto !important;
-                        text-align: center !important;
-                        text-shadow: none !important; /* REMOVE GLOW */
-                        max-width: 100% !important;
-                    }
+                    /* I AM PADMASREE: massive, centered, behind portrait */
                     .hero-bottom-left {
-                        font-size: 11vw !important;
-                        line-height: 0.9 !important;
+                        position: absolute !important;
+                        top: 20% !important;
+                        left: 50% !important;
+                        bottom: auto !important;
+                        transform: translateX(-50%) !important;
+                        width: 100% !important;
+                        text-align: center !important;
+                        font-size: 16vw !important;
+                        line-height: 0.85 !important;
+                        z-index: 10 !important; /* BEHIND IMAGE */
+                        text-shadow: none !important; /* No glow */
                     }
+
+                    /* FULL-STACK WEB DEV: smaller, centered, in front of portrait */
                     .hero-bottom-right {
-                        font-size: 6vw !important;
-                        line-height: 1.1 !important;
-                        color: var(--text-secondary) !important;
-                    }
-                    .hero-bio p {
-                        font-size: 0.9rem !important;
+                        position: absolute !important;
+                        bottom: 5% !important;
+                        left: 50% !important;
+                        right: auto !important;
+                        transform: translateX(-50%) !important;
+                        width: 100% !important;
+                        text-align: center !important;
+                        font-size: 7.5vw !important;
+                        z-index: 30 !important; /* IN FRONT OF IMAGE */
                         color: var(--text-primary) !important;
-                        font-weight: 600 !important;
                         text-shadow: none !important;
+                        background: rgba(255, 255, 255, 0.4);
+                        backdrop-filter: blur(10px);
+                        -webkit-backdrop-filter: blur(10px);
+                        padding: 1rem 0;
+                        border-top: 1px solid rgba(0,0,0,0.1);
+                        border-bottom: 1px solid rgba(0,0,0,0.1);
+                    }
+
+                    /* Hide bio on mobile for clean editorial look */
+                    .hero-bio {
+                        display: none !important; 
                     }
                 }
             `}</style>
