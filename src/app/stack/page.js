@@ -132,7 +132,7 @@ export default function StackPage() {
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                             Back to Tech Stack
                         </Link>
-                        <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '1.5rem' }}>The Stack — A deliberate choice by Padma</span>
+                        <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '1.5rem' }}>The Stack — A deliberate choice by PadmaSree</span>
                         <h1 className="stack-hero-title" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', fontWeight: '900', letterSpacing: '-0.04em', lineHeight: '1.0', color: 'var(--text-primary)', marginBottom: '2rem' }}>
                             Why I chose<br/>
                             <span style={{ color: 'transparent', WebkitTextStroke: '2px var(--text-primary)' }}>this stack.</span>
