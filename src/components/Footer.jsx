@@ -44,7 +44,7 @@ export default function Footer() {
             </div>
 
             {/* Massive stacked name — uses site text color */}
-            <div style={{ width: '100%', overflow: 'hidden', marginTop: '5rem', lineHeight: '0.85' }}>
+            <div style={{ width: '100%', overflow: 'hidden', marginTop: '5rem' }}>
                 <h2 className="footer-massive-text" style={{
                     fontWeight: '900',
                     letterSpacing: '-0.04em',
@@ -56,6 +56,7 @@ export default function Footer() {
                     userSelect: 'none',
                     whiteSpace: 'nowrap',
                     width: '100%',
+                    lineHeight: '0.8'
                 }}>
                     PADMASREE<br />KUNIGIRI
                 </h2>
@@ -98,7 +99,7 @@ export default function Footer() {
                     }
                     .footer-massive-text {
                         font-size: 11.5vw !important;
-                        line-height: 0.95 !important;
+                        line-height: 0.8 !important;
                     }
                 }
             `}</style>
