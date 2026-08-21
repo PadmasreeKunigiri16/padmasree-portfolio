@@ -98,7 +98,7 @@ export default function Hero() {
                     text-align: right;
                     font-family: "Impact", "Arial Black", sans-serif;
                     font-weight: 900;
-                    color: var(--text-secondary);
+                    color: var(--text-primary);
                     text-transform: uppercase;
                     line-height: 0.82;
                     font-size: clamp(2rem, 3.5vw, 4rem);
@@ -113,9 +113,17 @@ export default function Hero() {
                     /* Put text ON TOP of image on mobile */
                     .hero-bottom-left, .hero-bottom-right {
                         z-index: 30;
-                        font-size: 13vw; /* Exact viewport sizing prevents wrapping */
+                        font-size: 13vw; 
                         line-height: 0.85;
                         color: var(--text-primary);
+                        /* Add a white outline/glow so black text is readable over dark hair */
+                        text-shadow: 
+                            -1px -1px 0 var(--bg-primary),
+                             1px -1px 0 var(--bg-primary),
+                            -1px  1px 0 var(--bg-primary),
+                             1px  1px 0 var(--bg-primary),
+                             0 0 15px var(--bg-primary),
+                             0 0 30px var(--bg-primary);
                     }
                     .hero-bottom-left {
                         bottom: 12%;
@@ -135,7 +143,8 @@ export default function Hero() {
                     .hero-bio p {
                         font-size: 0.85rem;
                         color: var(--text-primary);
-                        font-weight: 500;
+                        font-weight: 600;
+                        text-shadow: 0 0 10px var(--bg-primary);
                     }
                 }
             `}</style>
