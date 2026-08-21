@@ -5,41 +5,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 export default function ContactPage() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
-
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState(null);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        
-        // Simulate API call for now (Option 3 approach - UI ready for real API later)
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setSubmitStatus('success');
-            setFormData({ name: '', email: '', subject: '', message: '' });
-            
-            // Reset success message after 5 seconds
-            setTimeout(() => {
-                setSubmitStatus(null);
-            }, 5000);
-        }, 1500);
-    };
-
     return (
         <main style={{ 
             minHeight: '100vh', 
@@ -97,16 +62,20 @@ export default function ContactPage() {
                 </div>
 
                 <div style={{ 
-                    display: 'grid', 
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    alignItems: 'center',
+                    maxWidth: '600px',
+                    margin: '0 auto',
                     gap: '4rem',
                     animation: 'fadeInUp 0.6s ease forwards',
                     animationDelay: '0.2s',
-                    opacity: 0
+                    opacity: 0,
+                    textAlign: 'center'
                 }}>
                     
-                    {/* Left Col - Info & Links */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                    {/* Info & Links */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', width: '100%' }}>
                         <div>
                             <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1rem' }}>Open to opportunities</h3>
                             <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
@@ -114,7 +83,7 @@ export default function ContactPage() {
                             </p>
                         </div>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' }}>
                             {/* Email Link */}
                             <a
                                 href="mailto:kunigiripadmasri16@gmail.com"
@@ -170,151 +139,6 @@ export default function ContactPage() {
                                 </div>
                             </a>
                         </div>
-                    </div>
-
-                    {/* Right Col - Form */}
-                    <div>
-                        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                <label htmlFor="name" style={{ fontSize: '0.9rem', fontWeight: '600' }}>Name</label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="John Doe"
-                                    style={{
-                                        padding: '1rem 1.25rem',
-                                        borderRadius: '0.75rem',
-                                        border: '1px solid var(--border-color)',
-                                        background: 'rgba(0,0,0,0.02)',
-                                        fontFamily: 'inherit',
-                                        fontSize: '1rem',
-                                        color: 'var(--text-primary)',
-                                        outline: 'none',
-                                        transition: 'border-color 0.2s ease'
-                                    }}
-                                    onFocus={e => e.target.style.borderColor = 'var(--text-primary)'}
-                                    onBlur={e => e.target.style.borderColor = 'var(--border-color)'}
-                                />
-                            </div>
-
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                <label htmlFor="email" style={{ fontSize: '0.9rem', fontWeight: '600' }}>Email</label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="john@example.com"
-                                    style={{
-                                        padding: '1rem 1.25rem',
-                                        borderRadius: '0.75rem',
-                                        border: '1px solid var(--border-color)',
-                                        background: 'rgba(0,0,0,0.02)',
-                                        fontFamily: 'inherit',
-                                        fontSize: '1rem',
-                                        color: 'var(--text-primary)',
-                                        outline: 'none',
-                                        transition: 'border-color 0.2s ease'
-                                    }}
-                                    onFocus={e => e.target.style.borderColor = 'var(--text-primary)'}
-                                    onBlur={e => e.target.style.borderColor = 'var(--border-color)'}
-                                />
-                            </div>
-                            
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                <label htmlFor="subject" style={{ fontSize: '0.9rem', fontWeight: '600' }}>Subject</label>
-                                <input 
-                                    type="text" 
-                                    id="subject" 
-                                    name="subject" 
-                                    value={formData.subject}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="Project Inquiry"
-                                    style={{
-                                        padding: '1rem 1.25rem',
-                                        borderRadius: '0.75rem',
-                                        border: '1px solid var(--border-color)',
-                                        background: 'rgba(0,0,0,0.02)',
-                                        fontFamily: 'inherit',
-                                        fontSize: '1rem',
-                                        color: 'var(--text-primary)',
-                                        outline: 'none',
-                                        transition: 'border-color 0.2s ease'
-                                    }}
-                                    onFocus={e => e.target.style.borderColor = 'var(--text-primary)'}
-                                    onBlur={e => e.target.style.borderColor = 'var(--border-color)'}
-                                />
-                            </div>
-
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                <label htmlFor="message" style={{ fontSize: '0.9rem', fontWeight: '600' }}>Message</label>
-                                <textarea 
-                                    id="message" 
-                                    name="message" 
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    required
-                                    rows="5"
-                                    placeholder="Tell me about your project..."
-                                    style={{
-                                        padding: '1rem 1.25rem',
-                                        borderRadius: '0.75rem',
-                                        border: '1px solid var(--border-color)',
-                                        background: 'rgba(0,0,0,0.02)',
-                                        fontFamily: 'inherit',
-                                        fontSize: '1rem',
-                                        color: 'var(--text-primary)',
-                                        outline: 'none',
-                                        transition: 'border-color 0.2s ease',
-                                        resize: 'vertical'
-                                    }}
-                                    onFocus={e => e.target.style.borderColor = 'var(--text-primary)'}
-                                    onBlur={e => e.target.style.borderColor = 'var(--border-color)'}
-                                ></textarea>
-                            </div>
-
-                            <button 
-                                type="submit" 
-                                disabled={isSubmitting}
-                                style={{
-                                    padding: '1.25rem',
-                                    borderRadius: '0.75rem',
-                                    border: 'none',
-                                    background: isSubmitting ? 'var(--text-secondary)' : 'var(--text-primary)',
-                                    color: 'var(--bg-primary)',
-                                    fontSize: '1rem',
-                                    fontWeight: '700',
-                                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                                    marginTop: '0.5rem',
-                                    transition: 'background 0.2s ease',
-                                    position: 'relative',
-                                    overflow: 'hidden'
-                                }}
-                            >
-                                {isSubmitting ? 'Sending...' : 'Send Message'}
-                            </button>
-                            
-                            {submitStatus === 'success' && (
-                                <div style={{ 
-                                    padding: '1rem', 
-                                    background: '#d4edda', 
-                                    color: '#155724', 
-                                    borderRadius: '0.5rem',
-                                    fontSize: '0.9rem',
-                                    textAlign: 'center',
-                                    animation: 'fadeIn 0.3s ease'
-                                }}>
-                                    Thanks for reaching out! I&apos;ll get back to you soon.
-                                </div>
-                            )}
-                        </form>
                     </div>
                 </div>
             </div>
