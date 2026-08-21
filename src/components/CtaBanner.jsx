@@ -115,6 +115,8 @@ export default function CtaBanner() {
                     position: relative;
                     overflow: hidden;
                     border-top: 1px solid var(--border-color);
+                    max-width: 100% !important;
+                    margin: 0 !important;
                 }
                 .cta-container {
                     max-width: 900px;

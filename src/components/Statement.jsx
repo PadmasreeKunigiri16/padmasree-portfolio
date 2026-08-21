@@ -72,6 +72,8 @@ export default function Statement() {
                     background-color: var(--bg-secondary);
                     border: none;
                     overflow: hidden;
+                    max-width: 100% !important; /* Override global section max-width */
+                    margin: 0 !important;
                 }
                 .statement-content {
                     max-width: 1000px;
