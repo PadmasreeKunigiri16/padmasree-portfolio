@@ -133,7 +133,7 @@ export default function About() {
                 style={{
                     display: 'flex',
                     width: '100%',
-                    height: 'calc(100vh - 80px)',
+                    height: '100%',
                     overflowX: 'auto',
                     overflowY: 'hidden',
                     scrollSnapType: 'x mandatory',
@@ -141,7 +141,7 @@ export default function About() {
                     msOverflowStyle: 'none',
                     scrollbarWidth: 'none',
                 }}
-                className="hide-scrollbar"
+                className="hide-scrollbar mobile-vertical-scroll"
             >
                 {/* 1. COVER */}
                 <section id="cover" style={pageStyle}>

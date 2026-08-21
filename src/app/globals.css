@@ -725,3 +725,77 @@ section {
     line-height: 20px;
     text-align: center;
 }
+
+/* ==========================================================================
+   MOBILE OPTIMIZATION (Global Resets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Reset Global Section Padding */
+    section {
+        padding: 4rem 1.25rem !important;
+    }
+    .pad-box {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    /* 2. Convert Horizontal Snap-Scroll to Vertical */
+    .mobile-vertical-scroll {
+        flex-direction: column !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        scroll-snap-type: y mandatory !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+    .mobile-vertical-scroll > section {
+        flex: none !important;
+        min-height: 100vh !important;
+        height: auto !important;
+        padding-top: 6rem !important;
+        padding-bottom: 6rem !important;
+        scroll-snap-align: start !important;
+    }
+
+    /* 3. Typography Clamps */
+    h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem) !important;
+        word-break: break-word;
+    }
+    
+    /* 4. Grids Collapse */
+    .grid-collapse {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* 5. Hide elements on mobile */
+    .hide-on-mobile {
+        display: none !important;
+    }
+    
+    /* 6. Navbar */
+    .navbar {
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        gap: 1.5rem;
+        white-space: nowrap;
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* 7. Hero specifically */
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    .hero-sidebar {
+        display: none !important;
+    }
+}

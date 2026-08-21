@@ -200,7 +200,7 @@ export default function CertificatesPage() {
                     msOverflowStyle: 'none',
                     scrollbarWidth: 'none',
                 }}
-                className="hide-scrollbar"
+                className="hide-scrollbar mobile-vertical-scroll"
             >
                 {/* 1. COVER */}
                 <section id="cover" style={{ ...pageStyle, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
