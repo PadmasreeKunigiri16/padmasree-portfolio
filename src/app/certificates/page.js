@@ -9,7 +9,7 @@ const certs = [
     { title: "AWS Certified AI Practitioner", category: "Artificial Intelligence", issuer: "AWS", type: "ai", file: "/AWS Certified AI Practitioner certificate.pdf" },
     { title: "AWS Certified Cloud Practitioner", category: "Cloud Foundations", issuer: "AWS", type: "cloud", file: "/AWS Certified Cloud Practitioner certificate.pdf" },
     { title: "Google Cloud Digital Leader", category: "Cloud Foundations", issuer: "Google", type: "cloud", file: "/Google cloud.jpeg" },
-    { title: "Oracle Agentic AI Certified Foundations Associate", category: "Artificial Intelligence", issuer: "Oracle", type: "ai" },
+    { title: "Oracle Agentic AI Certified Foundations Associate", category: "Artificial Intelligence", issuer: "Oracle", type: "ai", file: "/agentic ai .jpeg" },
     { title: "Oracle Java Certification", category: "Software Engineering", issuer: "Oracle", type: "software", file: "/oracle java.jpeg" },
     { title: "Getting Started with Enterprise-grade AI", category: "Artificial Intelligence", issuer: "IBM", type: "ai" },
     { title: "Cybersecurity Analyst Job Simulation", category: "Security", issuer: "Forage (TATA)", type: "software" },
