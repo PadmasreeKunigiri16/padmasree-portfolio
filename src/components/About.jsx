@@ -144,7 +144,7 @@ export default function About() {
                     msOverflowStyle: 'none',
                     scrollbarWidth: 'none',
                 }}
-                className="hide-scrollbar"
+                className="hide-scrollbar mobile-vertical-scroll"
             >
                 {/* 1. COVER */}
                 <section id="cover" style={pageStyle}>
