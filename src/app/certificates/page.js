@@ -300,9 +300,9 @@ export default function CertificatesPage() {
                         </div>
                         <div style={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', backgroundColor: 'var(--bg-secondary)' }}>
                             {selectedPdf.toLowerCase().endsWith('.pdf') ? (
-                                <iframe src={selectedPdf} style={{ width: '100%', height: '100%', border: 'none' }} title="Certificate Viewer" />
+                                <iframe src={encodeURI(selectedPdf)} style={{ width: '100%', height: '100%', border: 'none' }} title="Certificate Viewer" />
                             ) : (
-                                <img src={selectedPdf} alt="Certificate" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', padding: '1rem' }} />
+                                <img src={encodeURI(selectedPdf)} alt="Certificate" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', padding: '1rem' }} />
                             )}
                         </div>
                     </div>
