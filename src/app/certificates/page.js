@@ -9,10 +9,10 @@ const certs = [
     { title: "AWS Certified AI Practitioner", category: "Artificial Intelligence", issuer: "AWS", type: "ai", file: "/aws-ai.png" },
     { title: "AWS Certified Cloud Practitioner", category: "Cloud Foundations", issuer: "AWS", type: "cloud", file: "/aws-cloud.png" },
     { title: "Google Cloud Digital Leader", category: "Cloud Foundations", issuer: "Google", type: "cloud", file: "/google-cloud.png" },
-    { title: "Oracle Agentic AI Certified Foundations Associate", category: "Artificial Intelligence", issuer: "Oracle", type: "ai", file: "/agentic ai .jpeg" },
+    { title: "Oracle Agentic AI Certified Foundations Associate", category: "Artificial Intelligence", issuer: "Oracle", type: "ai", file: "/oracle-agentic-ai.png" },
     { title: "Oracle Java Certification", category: "Software Engineering", issuer: "Oracle", type: "software", file: "/oracle-java.png" },
-    { title: "Getting Started with Enterprise-grade AI", category: "Artificial Intelligence", issuer: "IBM", type: "ai", file: "/Getting started with enterprise grade ai.jpeg" },
-    { title: "Cybersecurity Analyst Job Simulation", category: "Security", issuer: "Forage (TATA)", type: "software", file: "/cybersecurity.jpeg" },
+    { title: "Getting Started with Enterprise-grade AI", category: "Artificial Intelligence", issuer: "IBM", type: "ai", file: "/ibm-enterprise-ai.png" },
+    { title: "Cybersecurity Analyst Job Simulation", category: "Security", issuer: "Forage (TATA)", type: "software", file: "/forage-cybersecurity.png" },
     { title: "Cambridge Lingua Skills – B2", category: "Language", issuer: "Cambridge", type: "software" }
 ];
 
