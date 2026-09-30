@@ -1,8 +1,9 @@
 "use client";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Playfair_Display } from 'next/font/google';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const playfair = Playfair_Display({ weight: ['400', '700', '800'], subsets: ['latin'], display: 'swap', style: ['normal', 'italic'] });
 
@@ -13,7 +14,8 @@ const projects = [
         subtitle: 'AI-Powered Health Mirror',
         meta: 'Computer Vision',
         desc: 'Developed an AI-powered smart mirror that uses Computer Vision to provide real-time wellness insights, including stress, fatigue, and skin health analysis.',
-        tech: ['Python', 'OpenCV']
+        tech: ['Python', 'OpenCV'],
+        github: 'https://github.com/PadmasreeKunigiri16/VitaMirror'
     },
     {
         id: '02',
@@ -29,12 +31,23 @@ const projects = [
         subtitle: 'Accountability Ecosystem',
         meta: 'Hackathon 1st Prize',
         desc: 'Developed frontend screens and integrated backend APIs for core features including accountability challenges, Stake Battles, ProofIQ verification, and analytical dashboards.',
-        tech: ['Frontend', 'Testing']
+        tech: ['Frontend', 'Testing'],
+        github: 'https://github.com/SaiDheeraj-19/StakeUp'
     }
 ];
 
 export default function ProjectsPage() {
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [selectedProject, setSelectedProject] = useState(null);
+
+    // Prevent body scroll when modal is open
+    useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [selectedProject]);
 
     return (
         <>
@@ -64,6 +77,7 @@ export default function ProjectsPage() {
                                 <div 
                                     key={proj.id}
                                     className="mag-card"
+                                    onClick={() => setSelectedProject(proj)}
                                     onMouseEnter={() => setHoveredIndex(index)}
                                     onMouseLeave={() => setHoveredIndex(null)}
                                     style={{ 
@@ -76,6 +90,7 @@ export default function ProjectsPage() {
                                         display: 'flex',
                                         flexDirection: 'column',
                                         justifyContent: 'space-between',
+                                        cursor: 'pointer',
                                         transition: 'transform 0.4s ease, box-shadow 0.4s ease',
                                         transform: hoveredIndex === index ? 'translateY(-5px)' : 'translateY(0)',
                                         boxShadow: hoveredIndex === index ? '0 20px 40px rgba(0,0,0,0.08)' : 'none',
@@ -136,6 +151,80 @@ export default function ProjectsPage() {
                     </div>
                 </section>
             </main>
+
+            <AnimatePresence>
+                {selectedProject && (
+                    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <motion.div 
+                            initial={{ opacity: 0 }} 
+                            animate={{ opacity: 1 }} 
+                            exit={{ opacity: 0 }} 
+                            onClick={() => setSelectedProject(null)}
+                            style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(4px)' }} 
+                        />
+                        <motion.div 
+                            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                            style={{ 
+                                position: 'relative', 
+                                background: '#f5f1ec', 
+                                padding: '4rem', 
+                                borderRadius: '1rem', 
+                                maxWidth: '800px', 
+                                width: '90%', 
+                                zIndex: 101,
+                                border: '1px solid rgba(0,0,0,0.1)'
+                            }}
+                        >
+                            <button 
+                                onClick={() => setSelectedProject(null)}
+                                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem' }}
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+
+                            <span style={{ fontSize: '0.85rem', fontWeight: '800', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+                                {selectedProject.meta}
+                            </span>
+                            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '900', color: 'var(--text-primary)', letterSpacing: '-0.03em', lineHeight: '1', textTransform: 'uppercase', margin: '1rem 0 0.5rem 0' }}>
+                                {selectedProject.title}
+                            </h2>
+                            <span className={playfair.className} style={{ fontSize: '1.5rem', color: '#6d3f52', fontStyle: 'italic', display: 'block', marginBottom: '2rem' }}>
+                                {selectedProject.subtitle}
+                            </span>
+                            
+                            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '2rem' }}>
+                                {selectedProject.desc}
+                            </p>
+
+                            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
+                                {selectedProject.tech.map(tag => (
+                                    <span key={tag} style={{ padding: '0.4rem 1rem', backgroundColor: '#fff', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {selectedProject.github && (
+                                <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" style={{
+                                    display: 'inline-flex', alignItems: 'center', gap: '0.8rem',
+                                    background: '#111', color: '#fff', padding: '1rem 2rem', borderRadius: '2rem',
+                                    textDecoration: 'none', fontSize: '0.9rem', fontWeight: '600', letterSpacing: '0.05em',
+                                    transition: 'background 0.2s ease'
+                                }}
+                                onMouseEnter={e => e.currentTarget.style.background = '#333'}
+                                onMouseLeave={e => e.currentTarget.style.background = '#111'}
+                                >
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    View on GitHub
+                                </a>
+                            )}
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
 
             <style>{`
                 @media (max-width: 900px) {

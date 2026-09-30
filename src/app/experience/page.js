@@ -39,25 +39,8 @@ export default function ExperiencePage() {
                         <span style={{ fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>{experiences.length} POSITION{experiences.length !== 1 ? 'S' : ''}</span>
                     </div>
 
-                    {/* Massive Background Watermark */}
-                    <div style={{
-                        position: 'absolute',
-                        top: '20%',
-                        left: '-5%',
-                        fontSize: '18rem',
-                        fontWeight: '900',
-                        color: 'rgba(0,0,0,0.02)',
-                        lineHeight: 0.8,
-                        pointerEvents: 'none',
-                        letterSpacing: '-0.05em',
-                        zIndex: 0,
-                        whiteSpace: 'nowrap'
-                    }}>
-                        CAREER
-                    </div>
-
                     {/* Jobs List */}
-                    <div style={{ display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 1 }}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
                         {experiences.map((job, index) => (
                             <div 
                                 key={job.id}
