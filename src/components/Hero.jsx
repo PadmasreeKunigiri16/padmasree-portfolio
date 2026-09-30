@@ -1,4 +1,11 @@
 "use client";
+import { Great_Vibes } from 'next/font/google';
+
+const signatureFont = Great_Vibes({ 
+    weight: '400', 
+    subsets: ['latin'],
+    display: 'swap',
+});
 
 export default function Hero() {
     return (
@@ -13,6 +20,11 @@ export default function Hero() {
             margin: 0,
         }}>
             
+            <div className={`hero-signature ${signatureFont.className}`}>
+                <div className="sig-first">Padmasree</div>
+                <div className="sig-last">Kunigiri</div>
+            </div>
+
             <div className="hero-bio">
                 <p>
                     Specialized in scalable web<br />architecture, QA automation,<br />and intelligent AI integrations.
@@ -104,6 +116,26 @@ export default function Hero() {
                     font-size: clamp(2rem, 3.5vw, 4rem);
                 }
 
+                .hero-signature {
+                    position: absolute;
+                    top: 15%;
+                    left: 5%;
+                    z-index: 30;
+                    color: var(--text-primary);
+                    transform: rotate(-12deg);
+                    font-size: clamp(4rem, 8vw, 8rem);
+                    line-height: 0.7;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    opacity: 0.85;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                }
+                
+                .sig-last {
+                    margin-left: 1.5em;
+                }
+
                 /* Mobile Optimizations - Premium Editorial Magazine Look */
                 @media (max-width: 768px) {
                     .hero-section {
@@ -120,6 +152,12 @@ export default function Hero() {
                         transform: translateX(0);
                     }
                     
+                    .hero-signature {
+                        top: 8% !important;
+                        left: 5% !important;
+                        font-size: 18vw !important;
+                    }
+
                     /* I AM PADMASREE: massive, centered, behind portrait */
                     .hero-bottom-left {
                         position: absolute !important;
