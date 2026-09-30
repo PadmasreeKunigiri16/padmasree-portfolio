@@ -21,7 +21,7 @@ export default function CtaBanner() {
             <div style={{ position: 'relative', zIndex: 1, padding: '7rem 6% 4rem 6%', minHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
                 
                 {/* WATERMARK */}
-                <div style={{
+                <div className="desktop-only" style={{
                     position: 'absolute',
                     top: '50%',
                     left: '50%',

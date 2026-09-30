@@ -46,7 +46,7 @@ export default function Statement() {
         <section className={`approach-section ${inter.className}`}>
 
             {/* APPROACH watermark */}
-            <div className="watermark">APPROACH</div>
+            <div className="watermark desktop-only">APPROACH</div>
 
             {/* Top label row */}
             <div className="top-label">
@@ -125,8 +125,8 @@ export default function Statement() {
             <style jsx>{`
                 .approach-section {
                     position: relative;
-                    width: 100vw;
-                    max-width: none !important;
+                    width: 100%;
+                    max-width: 100% !important;
                     margin: 0 !important;
                     padding: 5rem 6% 7rem 6%;
                     background: #f5f1ec;

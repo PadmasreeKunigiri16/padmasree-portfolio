@@ -64,7 +64,7 @@ export default function TechStack() {
             <div style={{ position: 'relative', zIndex: 1, padding: '7rem 6% 4rem 6%', display: 'flex', flexDirection: 'column' }}>
                 
                 {/* WATERMARK */}
-                <div style={{
+                <div className="desktop-only" style={{
                     position: 'absolute',
                     bottom: 0,
                     left: 0,

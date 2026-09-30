@@ -129,7 +129,7 @@ export default function StackPage() {
 
                 {/* Hero */}
                 <section style={{ padding: '8rem 6rem 6rem', borderBottom: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
-                    <div className="stack-hero-bg" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', fontSize: '18vw', fontWeight: '900', color: 'var(--text-primary)', opacity: 0.05, whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.05em' }}>WHY</div>
+                    <div className="stack-hero-bg desktop-only" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', fontSize: '18vw', fontWeight: '900', color: 'var(--text-primary)', opacity: 0.05, whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.05em' }}>WHY</div>
                     <div style={{ maxWidth: '900px', position: 'relative', zIndex: 10 }}>
                         <Link href="/#stack" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-secondary)', textDecoration: 'none', marginBottom: '2.5rem', transition: 'color 0.2s ease' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--text-primary)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>

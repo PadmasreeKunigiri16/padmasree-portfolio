@@ -97,7 +97,7 @@ export default function ProjectsPage() {
                                     }}
                                 >
                                     {/* Massive Background Number */}
-                                    <div style={{
+                                    <div className="desktop-only" style={{
                                         position: 'absolute',
                                         top: '-2rem',
                                         right: '-1rem',

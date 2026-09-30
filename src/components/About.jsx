@@ -76,9 +76,9 @@ export default function About() {
     const pageStyle = {
         flex: 'none',
         flexShrink: 0,
-        width: '100vw',
-        minWidth: '100vw',
-        maxWidth: '100vw',
+        width: '100%',
+        minWidth: '100%',
+        maxWidth: '100%',
         height: '100%',
         scrollSnapAlign: 'start',
         overflowY: 'hidden',
@@ -89,7 +89,7 @@ export default function About() {
     };
 
     return (
-        <div style={{ backgroundColor: '#f5f1ec', overflow: 'hidden', height: '100vh', width: '100vw' }}>
+        <div style={{ backgroundColor: '#f5f1ec', overflow: 'hidden', height: '100vh', width: '100%' }}>
             
             {/* Table of Contents / Sidebar Overlay */}
             <nav className="toc-nav" style={{

@@ -82,9 +82,9 @@ export default function CertificatesPage() {
     const pageStyle = {
         flex: 'none',
         flexShrink: 0,
-        width: '100vw',
-        minWidth: '100vw',
-        maxWidth: '100vw',
+        width: '100%',
+        minWidth: '100%',
+        maxWidth: '100%',
         height: '100%',
         scrollSnapAlign: 'start',
         overflowY: 'auto',
@@ -158,7 +158,7 @@ export default function CertificatesPage() {
     };
 
     return (
-        <div className="certs-page-container" style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden', height: '100vh', width: '100vw' }}>
+        <div className="certs-page-container" style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden', height: '100vh', width: '100%' }}>
             <Navbar />
             
             {/* Table of Contents / Sidebar Overlay */}
@@ -286,7 +286,7 @@ export default function CertificatesPage() {
 
             {selectedPdf && (
                 <div style={{
-                    position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+                    position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
                     backgroundColor: 'rgba(0,0,0,0.8)', zIndex: 9999,
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                     backdropFilter: 'blur(10px)'

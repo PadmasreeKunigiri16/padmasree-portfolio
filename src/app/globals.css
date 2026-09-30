@@ -800,3 +800,10 @@ section {
         display: none !important;
     }
 }
+
+/* Responsive Utilities */
+.mobile-only { display: none !important; }
+@media (max-width: 900px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: flex !important; }
+}

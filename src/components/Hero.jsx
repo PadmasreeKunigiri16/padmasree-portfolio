@@ -14,15 +14,15 @@ const inter = Inter({
     display: 'swap',
 });
 
-export default function Hero() {
-    return (
-        <section id="home" className={inter.className} style={{
-            position: 'relative',
-            width: '100vw',
-            maxWidth: 'none',
-            margin: 0,
-            padding: 0,
-            height: '100vh',
+    export default function Hero() {
+        return (
+            <section id="home" className={inter.className} style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '100%',
+                margin: 0,
+                padding: 0,
+                height: '100vh',
             minHeight: '700px',
             overflow: 'hidden',
             backgroundImage: "url('/hero-bg.png')",
@@ -33,6 +33,7 @@ export default function Hero() {
 
             {/* PORTRAIT — centered */}
             <img
+                className="hero-portrait"
                 src="/Padu Background Removed.png"
                 alt="Padmasree Kunigiri"
                 style={{
@@ -50,7 +51,7 @@ export default function Hero() {
             />
 
             {/* LEFT TEXT COLUMN */}
-            <div style={{
+            <div className="hero-left" style={{
                 position: 'absolute',
                 left: '5%',
                 top: '50%',
@@ -99,7 +100,7 @@ export default function Hero() {
 
 
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
+                <div className="desktop-only" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
                     <div style={{ 
                         width: '40px', 
                         height: '40px', 
@@ -121,7 +122,7 @@ export default function Hero() {
             </div>
 
             {/* RIGHT KEYWORDS COLUMN */}
-            <div style={{
+            <div className="hero-right" style={{
                 position: 'absolute',
                 right: '2%',
                 top: 0,
@@ -144,6 +145,43 @@ export default function Hero() {
                 </div>
             </div>
 
+        <style>{`
+            @media (max-width: 900px) {
+                .hero {
+                    min-height: 100vh !important;
+                }
+                .hero-portrait { 
+                    height: 50vh !important; 
+                    left: 50% !important;
+                    right: auto !important;
+                    transform: translateX(-50%) !important;
+                    object-position: bottom center !important;
+                }
+                .hero-left {
+                    top: 15% !important;
+                    bottom: auto !important;
+                    transform: none !important;
+                    width: 100% !important;
+                    min-width: 0 !important;
+                    left: 0 !important;
+                    z-index: 30 !important;
+                    background: transparent !important;
+                    padding: 0 1.5rem !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    text-align: center !important;
+                }
+                .hero-left > div:first-child { justify-content: center !important; margin-bottom: 1.5rem !important; } /* Center the top label */
+                .hero-left h1 { 
+                    font-size: clamp(3rem, 15vw, 4rem) !important; 
+                    line-height: 1 !important;
+                    text-align: center !important;
+                }
+                .hero-left p { text-align: center !important; margin: 1.5rem auto 0 auto !important; }
+                .hero-right { display: none !important; }
+            }
+        `}</style>
         </section>
     );
 }
