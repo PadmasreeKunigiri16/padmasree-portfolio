@@ -1,9 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Playfair_Display, Inter } from 'next/font/google';
 import LeetCodeStats from './LeetCodeStats';
 import Journey from './Journey';
 import Footer from './Footer';
+
+const playfair = Playfair_Display({ weight: ['400','600','700','800','900'], subsets: ['latin'], display: 'swap' });
+const inter = Inter({ weight: ['300','400','500','600'], subsets: ['latin'], display: 'swap' });
 
 const chapters = [
     { id: 'cover', title: 'Cover' },
@@ -80,12 +84,12 @@ export default function About() {
         overflowY: 'hidden',
         overflowX: 'hidden',
         position: 'relative',
-        backgroundColor: 'var(--bg-primary)',
+        backgroundColor: '#f5f1ec',
         boxSizing: 'border-box'
     };
 
     return (
-        <div style={{ backgroundColor: 'var(--bg-primary)', overflow: 'hidden', height: '100vh', width: '100vw' }}>
+        <div style={{ backgroundColor: '#f5f1ec', overflow: 'hidden', height: '100vh', width: '100vw' }}>
             
             {/* Table of Contents / Sidebar Overlay */}
             <nav className="toc-nav" style={{
@@ -148,61 +152,91 @@ export default function About() {
             >
                 {/* 1. COVER */}
                 <section id="cover" style={pageStyle}>
-                    <div className="mobile-col" style={{
+                    <div className={`mobile-col ${inter.className}`} style={{
                         height: '100%',
                         display: 'flex',
                         position: 'relative',
-                        backgroundColor: 'var(--bg-secondary)', // Unified seamless canvas
+                        backgroundColor: '#f5f1ec',
+                        backgroundImage: "url('/section-bg.png')",
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center center',
+                        backgroundRepeat: 'no-repeat',
                         overflow: 'hidden'
                     }}>
+
+
+                        {/* Overlay to soften background */}
+                        <div style={{
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(to right, rgba(245,241,236,0.96) 0%, rgba(245,241,236,0.85) 55%, rgba(245,241,236,0.2) 100%)',
+                            zIndex: 0
+                        }} />
+
                         {/* Massive Background Typography */}
-                        <div className="hero-bg-text" style={{
+                        <div className={inter.className} style={{
                             position: 'absolute',
                             top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
-                            fontSize: '20.5vw',
+                            fontSize: 'clamp(14rem, 26vw, 18rem)',
                             fontWeight: '900',
-                            color: 'var(--text-primary)',
-                            opacity: 0.12,
-                            lineHeight: '0.8',
-                            letterSpacing: '-0.05em',
+                            color: 'rgba(0,0,0,0.10)',
+                            lineHeight: '1',
+                            letterSpacing: '-0.04em',
                             pointerEvents: 'none',
                             whiteSpace: 'nowrap',
-                            zIndex: 0
+                            zIndex: 1
                         }}>
                             ENGINEER
                         </div>
 
                         <div className="hero-text-box" style={{
                             flex: '1',
-                            display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
+                            display: 'flex', flexDirection: 'column', justifyContent: 'center',
                             position: 'relative',
                             zIndex: 2,
+                            paddingLeft: '6%',
+                            paddingTop: '2rem'
                         }}>
-                            <div className="hero-chapter-tag" style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Chapter 01 — Portfolio</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                                <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.22em', color: '#555', textTransform: 'uppercase' }}>
+                                    CHAPTER 01
+                                </span>
+                                <div style={{ width: '40px', height: '1px', background: 'rgba(0,0,0,0.3)' }} />
+                                <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.22em', color: '#555', textTransform: 'uppercase' }}>
+                                    PORTFOLIO
+                                </span>
+                            </div>
                             
-                            <h1 style={{ fontSize: 'clamp(3rem, 7vw, 7rem)', fontWeight: '900', letterSpacing: '-0.04em', lineHeight: '1', color: 'var(--text-primary)', margin: '0 0 2rem 0' }}>
-                                Padmasree<br/>Kunigiri.
+                            <h1 className={playfair.className} style={{ fontSize: 'clamp(3rem, 7.5vw, 8.5rem)', fontWeight: '900', letterSpacing: '-0.03em', lineHeight: '1', margin: '0 0 2rem 0' }}>
+                                <span style={{ color: '#111' }}>Padmasree</span><br/>
+                                <span style={{ color: '#6d3f52' }}>Kunigiri.</span>
                             </h1>
                             
-                            <div className="hero-badges" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-                                <div style={{ padding: '0.5rem 1.25rem', border: '1px solid var(--text-primary)', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
+                                <div style={{ padding: '0.8rem 1.6rem', border: '1px solid #111', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#111' }}>
                                     Full-Stack Dev
                                 </div>
-                                <div style={{ padding: '0.5rem 1.25rem', border: '1px solid transparent', backgroundColor: 'var(--text-primary)', color: 'var(--bg-primary)', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                                <div style={{ padding: '0.8rem 1.6rem', border: '1px solid transparent', backgroundColor: '#6d3f52', color: '#fff', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
                                     QA Automation
                                 </div>
                             </div>
 
-                            <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: '1.7', maxWidth: '420px' }}>
+                            <p style={{ fontSize: '1rem', color: '#666', lineHeight: '1.7', maxWidth: '460px', marginBottom: '4rem' }}>
                                 Bridging the gap between beautiful interfaces and bulletproof backend architecture to engineer products people can actually trust.
                             </p>
 
                             {/* Swipe hint */}
-                            <div className="swipe-hint" style={{ position: 'absolute', display: 'flex', alignItems: 'center', gap: '1rem', animation: 'swipeHint 2s infinite ease-in-out' }}>
-                                <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Swipe to explore</span>
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <div style={{ position: 'absolute', bottom: '4rem', left: '6%', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                                <div style={{ width: '1.5px', height: '35px', background: '#9e7381' }} />
+                                <span style={{ fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.35em', color: '#333', textTransform: 'uppercase' }}>
+                                    SWIPE TO EXPLORE
+                                </span>
+                                <div style={{ width: '60px', height: '1.5px', background: '#9e7381' }} />
+                                <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', border: '1.5px solid #9e7381', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6d3f52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </div>
                             </div>
                         </div>
 
@@ -214,7 +248,7 @@ export default function About() {
                             alignItems: 'flex-end',
                             zIndex: 1
                         }}>
-                            <img src="/bg1.png" alt="Padmasree Kunigiri" style={{ width: '90%', height: '90%', objectFit: 'contain', objectPosition: 'bottom center', display: 'block', filter: 'drop-shadow(-10px 10px 30px rgba(0,0,0,0.15))' }} />
+                            <img src="/bg1.png" alt="Padmasree Kunigiri" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom center', display: 'block', filter: 'drop-shadow(-10px 10px 30px rgba(0,0,0,0.15))' }} />
                         </div>
                     </div>
                 </section>

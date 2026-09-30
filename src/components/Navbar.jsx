@@ -31,8 +31,9 @@ export default function Navbar() {
         <>
             <header className="navbar">
                 <div className="logo" style={{ zIndex: 10000 }}>
-                    <Link href="/" style={{ fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', textDecoration: 'none', color: isOpen ? '#fff' : 'inherit', transition: 'color 0.3s ease' }}>
-                        PADMASREE KUNIGIRI
+                    <Link href="/" style={{ textDecoration: 'none', color: isOpen ? '#fff' : 'inherit', transition: 'color 0.3s ease', display: 'inline-flex', alignItems: 'baseline', gap: '0.5rem' }}>
+                        <span style={{ fontWeight: '800', fontSize: '1rem', letterSpacing: '0.08em', color: isOpen ? '#fff' : '#111' }}>PADMASREE</span>
+                        <span style={{ fontWeight: '400', fontSize: '1rem', letterSpacing: '0.08em', color: isOpen ? '#aaa' : '#6d3f52' }}>KUNIGIRI</span>
                     </Link>
                 </div>
 
@@ -46,18 +47,19 @@ export default function Navbar() {
                 <div className="desktop-only" style={{ zIndex: 10000 }}>
                     <Link
                         href="/contact"
-                        className="btn btn-outline"
                         style={{ 
-                            border: 'none', 
-                            cursor: 'pointer', 
-                            background: 'var(--text-primary)', 
-                            color: '#fff', 
-                            textDecoration: 'none',
                             display: 'inline-flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            padding: '0.5rem 1rem',
-                            borderRadius: '0.5rem'
+                            padding: '0.55rem 1.3rem',
+                            borderRadius: '0.5rem',
+                            background: '#111',
+                            color: '#fff',
+                            textDecoration: 'none',
+                            fontSize: '0.88rem',
+                            fontWeight: '500',
+                            letterSpacing: '0.01em',
+                            transition: 'opacity 0.2s'
                         }}
                     >
                         Let&apos;s Talk →

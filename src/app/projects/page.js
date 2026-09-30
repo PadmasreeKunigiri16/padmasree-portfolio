@@ -2,6 +2,9 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
+import { Playfair_Display } from 'next/font/google';
+
+const playfair = Playfair_Display({ weight: ['400', '700', '800'], subsets: ['latin'], display: 'swap', style: ['normal', 'italic'] });
 
 const projects = [
     {
@@ -40,8 +43,8 @@ export default function ProjectsPage() {
                 <section style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto' }}>
                     <div style={{ marginBottom: '2rem' }}>
                         <span style={{ fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>SELECTED WORKS</span>
-                        <h1 style={{ fontSize: 'clamp(4rem, 12vw, 10rem)', fontWeight: '900', letterSpacing: '-0.06em', lineHeight: '0.9', color: 'var(--text-primary)', marginTop: '1rem', textTransform: 'uppercase' }}>
-                            PROJECTS
+                        <h1 className={playfair.className} style={{ fontSize: 'clamp(4rem, 11vw, 10rem)', fontWeight: '400', fontStyle: 'italic', letterSpacing: '-0.02em', lineHeight: '0.9', color: '#6d3f52', marginTop: '1rem', textTransform: 'capitalize' }}>
+                            Projects
                         </h1>
                     </div>
 
@@ -50,73 +53,86 @@ export default function ProjectsPage() {
                         <span style={{ fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>2024 – PRESENT</span>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        {projects.map((proj, index) => (
-                            <div 
-                                key={proj.id}
-                                className="proj-entry"
-                                onMouseEnter={() => setHoveredIndex(index)}
-                                onMouseLeave={() => setHoveredIndex(null)}
-                                style={{ 
-                                    display: 'grid', 
-                                    gridTemplateColumns: '1fr 2fr 1fr', 
-                                    gap: '2rem', 
-                                    paddingBottom: '4rem', 
-                                    borderBottom: '1px solid var(--border-color)',
-                                    cursor: 'pointer',
-                                    paddingTop: index !== 0 ? '4rem' : '0'
-                                }}
-                            >
-                                <div style={{ display: 'flex', gap: '1.5rem', paddingTop: '1rem' }}>
-                                    <span style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', fontWeight: '400' }}>{proj.id}</span>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                                        <span style={{ fontSize: '0.75rem', fontWeight: '900', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>{proj.meta}</span>
-                                    </div>
-                                </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '2rem' }}>
+                        {projects.map((proj, index) => {
+                            // Asymmetric grid spanning
+                            const colSpanDesktop = index === 0 ? 'span 7' : index === 1 ? 'span 5' : 'span 12';
+                            const minHeight = index === 0 ? '550px' : index === 1 ? '550px' : '400px';
+                            const bg = index === 0 ? '#ebe6df' : index === 1 ? '#e1dcd5' : '#d8d3cc';
 
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                    <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: '900', color: 'var(--text-primary)', letterSpacing: '-0.04em', lineHeight: '0.95', textTransform: 'uppercase', margin: 0 }}>
-                                        {proj.title}
-                                    </h2>
-                                    <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', fontWeight: '500', marginTop: '1rem' }}>{proj.subtitle}</span>
-                                    
-                                    <div style={{ 
-                                        display: 'grid',
-                                        gridTemplateRows: hoveredIndex === index ? '1fr' : '0fr',
-                                        transition: 'grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                                        overflow: 'hidden'
+                            return (
+                                <div 
+                                    key={proj.id}
+                                    className="mag-card"
+                                    onMouseEnter={() => setHoveredIndex(index)}
+                                    onMouseLeave={() => setHoveredIndex(null)}
+                                    style={{ 
+                                        gridColumn: colSpanDesktop,
+                                        backgroundColor: bg,
+                                        minHeight: minHeight,
+                                        padding: '3rem',
+                                        position: 'relative',
+                                        overflow: 'hidden',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'space-between',
+                                        transition: 'transform 0.4s ease, box-shadow 0.4s ease',
+                                        transform: hoveredIndex === index ? 'translateY(-5px)' : 'translateY(0)',
+                                        boxShadow: hoveredIndex === index ? '0 20px 40px rgba(0,0,0,0.08)' : 'none',
+                                    }}
+                                >
+                                    {/* Massive Background Number */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '-2rem',
+                                        right: '-1rem',
+                                        fontSize: '15rem',
+                                        fontWeight: '900',
+                                        color: 'rgba(255,255,255,0.4)',
+                                        lineHeight: 1,
+                                        pointerEvents: 'none',
+                                        letterSpacing: '-0.05em',
+                                        zIndex: 0
                                     }}>
-                                        <div style={{ minHeight: 0 }}>
-                                            <div style={{ paddingTop: '2rem' }}>
-                                                <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1.5rem', maxWidth: '600px' }}>
-                                                    {proj.desc}
-                                                </p>
-                                                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                                                    {proj.tech.map(tag => (
-                                                        <span key={tag} style={{ padding: '0.4rem 1rem', border: '1px solid var(--border-color)', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
+                                        {proj.id}
+                                    </div>
+
+                                    {/* Top Section */}
+                                    <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                        <span style={{ fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+                                            {proj.meta}
+                                        </span>
+                                        <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: hoveredIndex === index ? 1 : 0, transition: 'opacity 0.3s ease' }}>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                        </div>
+                                    </div>
+
+                                    {/* Bottom Section */}
+                                    <div style={{ position: 'relative', zIndex: 1, display: 'grid', gap: '1rem', marginTop: '4rem' }}>
+                                        <div>
+                                            <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', fontWeight: '900', color: 'var(--text-primary)', letterSpacing: '-0.03em', lineHeight: '1', textTransform: 'uppercase', margin: '0 0 0.5rem 0' }}>
+                                                {proj.title}
+                                            </h2>
+                                            <span style={{ fontSize: '1.2rem', color: '#6d3f52', fontWeight: '600' }}>
+                                                {proj.subtitle}
+                                            </span>
+                                        </div>
+                                        
+                                        <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: index === 2 ? '800px' : '90%', margin: '1rem 0' }}>
+                                            {proj.desc}
+                                        </p>
+
+                                        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                            {proj.tech.map(tag => (
+                                                <span key={tag} style={{ padding: '0.4rem 1rem', backgroundColor: '#fff', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                                                    {tag}
+                                                </span>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
-
-                                <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '1rem' }}>
-                                    <span style={{ 
-                                        fontSize: '0.7rem', 
-                                        fontWeight: '800', 
-                                        letterSpacing: '0.15em', 
-                                        textTransform: 'uppercase', 
-                                        color: hoveredIndex === index ? 'transparent' : 'var(--text-secondary)',
-                                        transition: 'color 0.3s ease'
-                                    }}>
-                                        HOVER TO EXPAND
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </section>
             </main>
@@ -124,14 +140,7 @@ export default function ProjectsPage() {
             <style>{`
                 @media (max-width: 900px) {
                     section { padding: 0 2rem !important; }
-                    .proj-entry {
-                        grid-template-columns: 1fr !important;
-                        gap: 2rem !important;
-                    }
-                    .proj-entry > div:last-child {
-                        justify-content: flex-start !important;
-                        padding-top: 0 !important;
-                    }
+                    .mag-card { grid-column: span 12 !important; min-height: 400px !important; }
                 }
             `}</style>
             <Footer />

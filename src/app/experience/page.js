@@ -2,6 +2,9 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
+import { Playfair_Display } from 'next/font/google';
+
+const playfair = Playfair_Display({ weight: ['400', '700', '800'], subsets: ['latin'], display: 'swap', style: ['normal', 'italic'] });
 
 export default function ExperiencePage() {
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -26,8 +29,8 @@ export default function ExperiencePage() {
                 <section style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto' }}>
                     <div style={{ marginBottom: '2rem' }}>
                         <span style={{ fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>PROFESSIONAL RECORD</span>
-                        <h1 style={{ fontSize: 'clamp(4rem, 11vw, 10rem)', fontWeight: '900', letterSpacing: '-0.06em', lineHeight: '0.9', color: 'var(--text-primary)', marginTop: '1rem', textTransform: 'uppercase' }}>
-                            EXPERIENCE
+                        <h1 className={playfair.className} style={{ fontSize: 'clamp(4rem, 11vw, 10rem)', fontWeight: '400', fontStyle: 'italic', letterSpacing: '-0.02em', lineHeight: '0.9', color: '#6d3f52', marginTop: '1rem', textTransform: 'capitalize' }}>
+                            Experience
                         </h1>
                     </div>
 
@@ -36,8 +39,25 @@ export default function ExperiencePage() {
                         <span style={{ fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>{experiences.length} POSITION{experiences.length !== 1 ? 'S' : ''}</span>
                     </div>
 
+                    {/* Massive Background Watermark */}
+                    <div style={{
+                        position: 'absolute',
+                        top: '20%',
+                        left: '-5%',
+                        fontSize: '18rem',
+                        fontWeight: '900',
+                        color: 'rgba(0,0,0,0.02)',
+                        lineHeight: 0.8,
+                        pointerEvents: 'none',
+                        letterSpacing: '-0.05em',
+                        zIndex: 0,
+                        whiteSpace: 'nowrap'
+                    }}>
+                        CAREER
+                    </div>
+
                     {/* Jobs List */}
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 1 }}>
                         {experiences.map((job, index) => (
                             <div 
                                 key={job.id}
@@ -46,65 +66,46 @@ export default function ExperiencePage() {
                                 onMouseLeave={() => setHoveredIndex(null)}
                                 style={{ 
                                     display: 'grid', 
-                                    gridTemplateColumns: '1fr 2fr 1fr', 
-                                    gap: '2rem', 
-                                    paddingBottom: '4rem', 
-                                    borderBottom: '1px solid var(--border-color)',
-                                    cursor: 'pointer'
+                                    gridTemplateColumns: '1fr 3fr', 
+                                    gap: '4rem', 
+                                    padding: '4rem',
+                                    backgroundColor: hoveredIndex === index ? '#ebe6df' : '#f5f1ec',
+                                    border: '1px solid var(--border-color)',
+                                    transition: 'background-color 0.4s ease, transform 0.4s ease',
+                                    transform: hoveredIndex === index ? 'translateY(-5px)' : 'translateY(0)',
                                 }}
                             >
-                                {/* Left Column: Meta */}
-                                <div style={{ display: 'flex', gap: '1.5rem', paddingTop: '1rem' }}>
-                                    <span style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', fontWeight: '400' }}>{job.id}</span>
+                                {/* Left Column: Meta & Date */}
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                                    <div style={{ fontSize: '4rem', fontWeight: '900', color: 'rgba(0,0,0,0.06)', lineHeight: 0.8, letterSpacing: '-0.05em' }}>
+                                        {job.id}
+                                    </div>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                                         <span style={{ fontSize: '0.75rem', fontWeight: '900', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>{job.type}</span>
-                                        <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{job.date}</span>
+                                        <span style={{ fontSize: '0.9rem', color: '#6d3f52', fontWeight: 600 }}>{job.date}</span>
                                     </div>
                                 </div>
 
-                                {/* Middle Column: Title & Content */}
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                    <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: '900', color: 'var(--text-primary)', letterSpacing: '-0.04em', lineHeight: '0.95', textTransform: 'uppercase', margin: 0 }}>
-                                        {job.companyLine1}<br/>{job.companyLine2}
+                                {/* Right Column: Title & Content */}
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                    <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '900', color: 'var(--text-primary)', letterSpacing: '-0.03em', lineHeight: '1', textTransform: 'uppercase', margin: 0 }}>
+                                        {job.companyLine1} {job.companyLine2}
                                     </h2>
-                                    <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', fontWeight: '500', marginTop: '1rem' }}>{job.role}</span>
-                                    
-                                    {/* Expandable Content */}
-                                    <div style={{ 
-                                        display: 'grid',
-                                        gridTemplateRows: hoveredIndex === index ? '1fr' : '0fr',
-                                        transition: 'grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                                        overflow: 'hidden'
-                                    }}>
-                                        <div style={{ minHeight: 0 }}>
-                                            <div style={{ paddingTop: '2rem' }}>
-                                                <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1.5rem', maxWidth: '600px' }}>
-                                                    {job.description}
-                                                </p>
-                                                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                                                    {job.tags.map(tag => (
-                                                        <span key={tag} style={{ padding: '0.4rem 1rem', border: '1px solid var(--border-color)', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Right Column: Hint */}
-                                <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '1rem' }}>
-                                    <span style={{ 
-                                        fontSize: '0.7rem', 
-                                        fontWeight: '800', 
-                                        letterSpacing: '0.15em', 
-                                        textTransform: 'uppercase', 
-                                        color: hoveredIndex === index ? 'transparent' : 'var(--text-secondary)',
-                                        transition: 'color 0.3s ease'
-                                    }}>
-                                        HOVER TO EXPAND
+                                    <span style={{ fontSize: '1.4rem', color: 'var(--text-primary)', fontWeight: '400', fontStyle: 'italic', marginBottom: '1.5rem' }}>
+                                        {job.role}
                                     </span>
+                                    
+                                    <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '2rem', maxWidth: '700px' }}>
+                                        {job.description}
+                                    </p>
+
+                                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                        {job.tags.map(tag => (
+                                            <span key={tag} style={{ padding: '0.4rem 1rem', backgroundColor: '#fff', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -118,9 +119,7 @@ export default function ExperiencePage() {
                     .job-entry {
                         grid-template-columns: 1fr !important;
                         gap: 2rem !important;
-                    }
-                    .job-entry > div:last-child {
-                        justify-content: flex-start !important;
+                        padding: 2rem !important;
                     }
                 }
             `}</style>

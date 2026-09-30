@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-    --bg-primary: #f8fafc;
-    --bg-secondary: #ffffff;
+    --bg-primary: #f5f1ec;
+    --bg-secondary: #f5f1ec;
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --accent: #2563eb;
@@ -100,15 +100,15 @@ section {
 
 /* Navbar */
 .navbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: var(--bg-primary);
+    padding: 1.1rem 3rem;
+    background: transparent;
     z-index: 1000;
 }
 
@@ -120,11 +120,12 @@ section {
 .nav-links a {
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #111;
+    letter-spacing: 0.01em;
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: #666;
 }
 
 /* Common Section Headers */

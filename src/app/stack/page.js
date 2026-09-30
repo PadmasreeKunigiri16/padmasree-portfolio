@@ -2,6 +2,9 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import { Playfair_Display } from 'next/font/google';
+
+const playfair = Playfair_Display({ weight: ['400', '700', '800'], subsets: ['latin'], display: 'swap', style: ['normal', 'italic'] });
 
 const reasons = [
     {
@@ -132,10 +135,9 @@ export default function StackPage() {
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                             Back to Tech Stack
                         </Link>
-                        <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '1.5rem' }}>The Stack — A deliberate choice by PadmaSree</span>
-                        <h1 className="stack-hero-title" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', fontWeight: '900', letterSpacing: '-0.04em', lineHeight: '1.0', color: 'var(--text-primary)', marginBottom: '2rem' }}>
+                        <h1 className={playfair.className} style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', fontWeight: '400', fontStyle: 'italic', letterSpacing: '-0.02em', lineHeight: '1.0', color: '#6d3f52', marginBottom: '2rem', textTransform: 'capitalize' }}>
                             Why I chose<br/>
-                            <span style={{ color: 'transparent', WebkitTextStroke: '2px var(--text-primary)' }}>this stack.</span>
+                            this stack.
                         </h1>
                         <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.8', maxWidth: '700px' }}>
                             I don&apos;t use technologies just because they&apos;re trendy. Every tool here was carefully selected because it is <strong>better suited for modern development</strong> and <strong>helpful in solving real-world problems reliably</strong>. From frontend interfaces to backend automation, here is exactly why I rely on these technologies to engineer products people can trust.

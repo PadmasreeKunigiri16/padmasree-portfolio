@@ -11,10 +11,13 @@ export const metadata = {
   description: "Padmasree Kunigiri Portfolio",
 };
 
+import Loader from "../components/Loader";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-full flex flex-col`}>
+        <Loader />
         {children}
       </body>
     </html>

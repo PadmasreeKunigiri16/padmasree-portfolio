@@ -79,10 +79,13 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <main>
+            <main style={{ backgroundColor: 'var(--bg-primary)' }}>
                 <Hero />
+                <div style={{ width: '100%', height: '1px', backgroundColor: 'var(--border-color)', margin: '0 auto' }} />
                 <Statement />
+                <div style={{ width: '100%', height: '1px', backgroundColor: 'var(--border-color)', margin: '0 auto' }} />
                 <TechStack />
+                <div style={{ width: '100%', height: '1px', backgroundColor: 'var(--border-color)', margin: '0 auto' }} />
                 <CtaBanner />
             </main>
             <Footer />
