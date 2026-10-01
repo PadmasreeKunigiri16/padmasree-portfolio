@@ -196,7 +196,7 @@ export default function CertificatesPage() {
                                             animate={{ 
                                                 rotate: isHovered ? 0 : -45, 
                                                 scale: isHovered ? 1.2 : 1,
-                                                backgroundColor: isHovered ? 'var(--text-primary)' : 'transparent',
+                                                backgroundColor: isHovered ? 'var(--text-primary)' : 'rgba(0,0,0,0)',
                                             }}
                                             transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                                             style={{ 
