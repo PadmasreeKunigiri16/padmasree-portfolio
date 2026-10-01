@@ -40,7 +40,13 @@ export default function Navbar() {
                 {/* Desktop Nav */}
                 <nav className="nav-links desktop-only">
                     {navItems.filter(item => item.path !== '/' || pathname !== '/').map(item => (
-                        <Link key={item.path} href={item.path}>{item.name}</Link>
+                        <Link 
+                            key={item.path} 
+                            href={item.path}
+                            className={pathname === item.path ? 'active' : ''}
+                        >
+                            {item.name}
+                        </Link>
                     ))}
                 </nav>
                 

@@ -12,11 +12,13 @@ export const metadata = {
 };
 
 import Loader from "../components/Loader";
+import BackgroundNoise from "../components/BackgroundNoise";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-full flex flex-col`}>
+        <BackgroundNoise />
         <Loader />
         {children}
       </body>
