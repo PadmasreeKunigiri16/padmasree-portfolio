@@ -15,7 +15,7 @@ export default function Footer() {
             padding: 0,
             overflow: 'hidden',
             backgroundColor: '#f5f1ec',
-            backgroundImage: "url('/section-bg.png')",
+            backgroundImage: "url('/contact-bg.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
@@ -118,13 +118,13 @@ export default function Footer() {
                     
                     <div style={{ paddingRight: '1rem', display: 'flex', alignItems: 'center' }}>
                         <img 
-                            src="/signature.png" 
+                            src="/signature-new.png" 
                             alt="Padmasree Kunigiri Signature" 
                             style={{ 
                                 height: '5rem',
                                 objectFit: 'contain',
-                                opacity: 0.8,
-                                mixBlendMode: 'multiply'
+                                filter: 'brightness(0)',
+                                opacity: 0.8
                             }} 
                         />
                     </div>

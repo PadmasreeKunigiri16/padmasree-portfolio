@@ -151,142 +151,163 @@ export default function About() {
                 className="hide-scrollbar mobile-vertical-scroll"
             >
                 {/* 1. COVER */}
-                <section id="cover" style={pageStyle}>
-                    <div className={`mobile-col ${inter.className}`} style={{
-                        height: '100%',
-                        display: 'flex',
-                        position: 'relative',
-                        backgroundColor: '#f5f1ec',
-                        backgroundImage: "url('/section-bg.png')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center center',
-                        backgroundRepeat: 'no-repeat',
-                        overflow: 'hidden'
-                    }}>
-
-
-                        {/* Overlay to soften background */}
-                        <div style={{
-                            position: 'absolute',
-                            inset: 0,
-                            background: 'linear-gradient(to right, rgba(245,241,236,0.96) 0%, rgba(245,241,236,0.85) 55%, rgba(245,241,236,0.2) 100%)',
-                            zIndex: 0
-                        }} />
-
-                        {/* Massive Background Typography */}
-                        <div className={inter.className} style={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            fontSize: 'clamp(14rem, 26vw, 18rem)',
-                            fontWeight: '900',
-                            color: 'rgba(0,0,0,0.10)',
-                            lineHeight: '1',
-                            letterSpacing: '-0.04em',
-                            pointerEvents: 'none',
-                            whiteSpace: 'nowrap',
-                            zIndex: 1
-                        }}>
-                            ENGINEER
-                        </div>
-
-                        <div className="hero-text-box" style={{
-                            flex: '1',
-                            display: 'flex', flexDirection: 'column', justifyContent: 'center',
-                            position: 'relative',
-                            zIndex: 2,
-                            paddingLeft: '6%',
-                            paddingTop: '2rem'
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                                <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.22em', color: '#555', textTransform: 'uppercase' }}>
-                                    CHAPTER 01
-                                </span>
-                                <div style={{ width: '40px', height: '1px', background: 'rgba(0,0,0,0.3)' }} />
-                                <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.22em', color: '#555', textTransform: 'uppercase' }}>
-                                    PORTFOLIO
-                                </span>
-                            </div>
+                <section id="cover" style={{ 
+                    ...pageStyle, 
+                    backgroundColor: '#f5f1ec', 
+                    backgroundImage: "url('/section-bg.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center center',
+                    overflow: 'hidden', 
+                    position: 'relative', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    padding: '1.5rem' 
+                }}>
+                    
+                    {/* Elegant Double Frame */}
+                    <div style={{ width: '100%', height: '100%', border: '1px solid rgba(0,0,0,0.1)', padding: '0.5rem', position: 'relative' }}>
+                        <div style={{ width: '100%', height: '100%', border: '1px solid rgba(0,0,0,0.05)', position: 'relative', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                             
-                            <h1 className={playfair.className} style={{ fontSize: 'clamp(3rem, 7.5vw, 8.5rem)', fontWeight: '900', letterSpacing: '-0.03em', lineHeight: '1', margin: '0 0 2rem 0' }}>
-                                <span style={{ color: '#111' }}>Padmasree</span><br/>
-                                <span style={{ color: '#6d3f52' }}>Kunigiri.</span>
-                            </h1>
-                            
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
-                                <div style={{ padding: '0.8rem 1.6rem', border: '1px solid #111', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#111' }}>
-                                    Full-Stack Dev
+                            {/* Subtle overlay to soften the background image */}
+                            <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(245,241,236,0.4)', zIndex: 0 }} />
+
+                            {/* The Portrait */}
+                            <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', height: '88%', width: '100%', zIndex: 1, display: 'flex', justifyContent: 'center' }}>
+                                <img src="/bg1.png" alt="Padmasree Kunigiri" style={{ height: '100%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom center', filter: 'drop-shadow(0px 15px 40px rgba(0,0,0,0.2))' }} />
+                            </div>
+
+                            {/* The Signature (From Uploaded Image) */}
+                            <div style={{ position: 'absolute', top: '25%', right: '8%', zIndex: 2, pointerEvents: 'none', width: '35vw', maxWidth: '450px', transform: 'rotate(-3deg)' }}>
+                                <img src="/signature-transparent.png" alt="Padmasree Signature" style={{ width: '100%', height: 'auto', filter: 'brightness(0) opacity(0.85)' }} />
+                                {/* Organic Curved Purple Underline */}
+                                <svg style={{ position: 'absolute', bottom: '16%', left: '2%', width: '95%', height: '40px', overflow: 'visible', pointerEvents: 'none' }} viewBox="0 0 100 20" preserveAspectRatio="none">
+                                    <path d="M 5,18 Q 45,15 95,2" fill="none" stroke="url(#purple-grad)" strokeWidth="0.8" strokeLinecap="round" />
+                                    <defs>
+                                        <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stopColor="rgba(177,136,166,0)" />
+                                            <stop offset="15%" stopColor="rgba(177,136,166,0.9)" />
+                                            <stop offset="100%" stopColor="rgba(177,136,166,0)" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+
+                            {/* Foreground Content (IN FRONT of everything) */}
+                            <div style={{ position: 'relative', zIndex: 3, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '2.5rem', pointerEvents: 'none' }}>
+                                
+                                {/* Refined Top Bar with Micro-typography */}
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                                        <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>Chapter 01</span>
+                                        <span style={{ fontSize: '0.55rem', fontFamily: 'monospace', fontWeight: '500', letterSpacing: '0.1em', color: 'var(--text-secondary)' }}>Updated 2026</span>
+                                    </div>
+                                    
+                                    {/* Removed top right text to keep it ultra minimal */}
                                 </div>
-                                <div style={{ padding: '0.8rem 1.6rem', border: '1px solid transparent', backgroundColor: '#6d3f52', color: '#fff', borderRadius: '2rem', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-                                    QA Automation
+
+                                {/* Bottom Content Area */}
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '3rem' }}>
+                                    
+                                    {/* Minimal Floating Paragraph */}
+                                    <div style={{ maxWidth: '400px', pointerEvents: 'auto', paddingLeft: '1.5rem', borderLeft: '1.5px solid rgba(109,63,82,0.3)' }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                                            <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>Full-Stack</span>
+                                            <div style={{ width: '4px', height: '4px', backgroundColor: '#6d3f52', borderRadius: '50%' }} />
+                                            <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>QA Auto</span>
+                                        </div>
+                                        <p style={{ fontSize: '1rem', color: 'var(--text-primary)', lineHeight: '1.8', margin: 0, fontWeight: '400' }}>
+                                            A software engineer obsessed with bridging the gap between beautiful interfaces and bulletproof backend systems. I build digital products that prioritize scale, automation, and an uncompromising aesthetic.
+                                        </p>
+                                    </div>
+
+                                    {/* Minimal Explore Hint */}
+                                    <div 
+                                        onClick={() => scrollToChapter('identity')}
+                                        style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', pointerEvents: 'auto', cursor: 'pointer', transition: 'opacity 0.3s ease' }}
+                                        onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
+                                        onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+                                    >
+                                        <div style={{ width: '40px', height: '1px', backgroundColor: 'rgba(0,0,0,0.2)' }} />
+                                        <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>Swipe to Discover</span>
+                                        <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', border: '1px solid rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
-                            <p style={{ fontSize: '1rem', color: '#666', lineHeight: '1.7', maxWidth: '460px', marginBottom: '4rem' }}>
-                                Bridging the gap between beautiful interfaces and bulletproof backend architecture to engineer products people can actually trust.
-                            </p>
-
-                            {/* Swipe hint */}
-                            <div style={{ position: 'absolute', bottom: '4rem', left: '6%', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                                <div style={{ width: '1.5px', height: '35px', background: '#9e7381' }} />
-                                <span style={{ fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.35em', color: '#333', textTransform: 'uppercase' }}>
-                                    SWIPE TO EXPLORE
-                                </span>
-                                <div style={{ width: '60px', height: '1.5px', background: '#9e7381' }} />
-                                <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', border: '1.5px solid #9e7381', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6d3f52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="hero-image-box" style={{ 
-                            flex: '1', 
-                            position: 'relative', 
-                            display: 'flex', 
-                            justifyContent: 'center', 
-                            alignItems: 'flex-end',
-                            zIndex: 1
-                        }}>
-                            <img src="/bg1.png" alt="Padmasree Kunigiri" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom center', display: 'block', filter: 'drop-shadow(-10px 10px 30px rgba(0,0,0,0.15))' }} />
                         </div>
                     </div>
                 </section>
 
                 {/* 2. IDENTITY */}
-                <section id="identity" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)' }}>
-                    <div className="pad-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                        <div>
-                            <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '2rem' }}>Chapter 02 — Identity</span>
-                            <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 4.5rem)', fontWeight: '900', letterSpacing: '-0.03em', lineHeight: '1.1', color: 'var(--text-primary)', maxWidth: '1200px' }}>
-                                I craft <span style={{ color: 'transparent', WebkitTextStroke: '1px var(--text-primary)' }}>digital experiences</span> that are reliable, performant, and beautiful.
-                            </h2>
-                            <p style={{ fontSize: '1rem', lineHeight: '1.6', color: 'var(--text-secondary)', maxWidth: '600px', marginTop: '1.5rem' }}>
-                                From intuitive frontends to dependable backend systems, I engineer products end-to-end — and test every detail so people can <strong style={{ color: 'var(--text-primary)' }}>actually trust them</strong>.
-                            </p>
+                <section id="identity" style={{ ...pageStyle, borderRight: '1px solid rgba(0,0,0,0.1)', position: 'relative', overflow: 'hidden' }}>
+                    
+                    {/* Giant Watermark */}
+                    <div className={playfair.className} style={{ position: 'absolute', top: '5%', right: '-2%', fontSize: 'clamp(20rem, 40vw, 40rem)', lineHeight: '0.8', color: 'rgba(0,0,0,0.02)', fontWeight: '700', fontStyle: 'italic', pointerEvents: 'none', zIndex: 0 }}>
+                        02
+                    </div>
+
+                    <div className="pad-box" style={{ position: 'relative', zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                        
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                            {/* Chapter Header */}
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem' }}>
+                                <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-secondary)' }} />
+                                <span style={{ fontSize: '0.75rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+                                    Chapter 02 // Identity
+                                </span>
+                            </div>
+                            
+                            {/* Split Editorial Layout */}
+                            <div style={{ display: 'flex', gap: '3rem', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+                                {/* Massive Heading */}
+                                <div style={{ flex: '1 1 400px' }}>
+                                    <h2 className={playfair.className} style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', fontWeight: '400', lineHeight: '0.95', color: 'var(--text-primary)', margin: '0', letterSpacing: '-0.04em' }}>
+                                        I engineer <br/>
+                                        <span style={{ fontStyle: 'italic', color: '#6d3f52' }}>products</span><br/>
+                                        people trust.
+                                    </h2>
+                                </div>
+                                
+                                {/* Editorial Paragraph */}
+                                <div style={{ flex: '1 1 300px', paddingBottom: '0.5rem' }}>
+                                    <p style={{ fontSize: '1rem', lineHeight: '1.8', color: 'var(--text-secondary)', margin: '0', fontWeight: '400', maxWidth: '400px' }}>
+                                        I craft digital experiences that are robust, performant, and deeply intuitive. From pixel-perfect frontends to scalable backend architecture, I focus strictly on the details that elevate a product.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Bottom Metadata Bar */}
-                        <div className="metadata-bar" style={{ display: 'grid', borderTop: '1px solid var(--border-color)' }}>
-                            <div>
-                                <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.25rem' }}>Location</span>
-                                <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>Kurnool, AP</div>
+                        <div style={{ borderTop: '1px solid rgba(0,0,0,0.1)', paddingTop: '1.5rem', paddingBottom: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Location</span>
+                                <span style={{ fontSize: '1rem', fontWeight: '500', color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>Kurnool, AP</span>
                             </div>
-                            <div>
-                                <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.25rem' }}>Core Focus</span>
-                                <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>Full-Stack Eng.</div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Core Focus</span>
+                                <span style={{ fontSize: '1rem', fontWeight: '500', color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>Full-Stack Engineering</span>
                             </div>
-                            <div>
-                                <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.25rem' }}>Current Role</span>
-                                <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>Software Dev</div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Current Role</span>
+                                <span style={{ fontSize: '1rem', fontWeight: '500', color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>Software Developer</span>
                             </div>
                         </div>
+
+                        
                     </div>
                 </section>
 
                 {/* 3. EDUCATION */}
-                <section id="education" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)' }}>
-                    <div className="pad-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                <section id="education" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+                    {/* Giant Watermark */}
+                    <div className={playfair.className} style={{ position: 'absolute', top: '5%', right: '-2%', fontSize: 'clamp(20rem, 40vw, 40rem)', lineHeight: '0.8', color: 'rgba(0,0,0,0.02)', fontWeight: '700', fontStyle: 'italic', pointerEvents: 'none', zIndex: 0 }}>
+                        03
+                    </div>
+                    <div className="pad-box" style={{ position: 'relative', zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '4rem' }}>
                             <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-secondary)' }} />
                             <span style={{ fontSize: '0.85rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
@@ -337,40 +358,64 @@ export default function About() {
                 </section>
 
                 {/* 4. STATS (LeetCode) */}
-                <section id="stats" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)' }}>
-                    <LeetCodeStats isBookLayout={true} />
+                <section id="stats" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+                    {/* Giant Watermark */}
+                    <div className={playfair.className} style={{ position: 'absolute', top: '5%', right: '-2%', fontSize: 'clamp(20rem, 40vw, 40rem)', lineHeight: '0.8', color: 'rgba(0,0,0,0.02)', fontWeight: '700', fontStyle: 'italic', pointerEvents: 'none', zIndex: 0 }}>
+                        04
+                    </div>
+                    <div style={{ position: 'relative', zIndex: 1, height: '100%' }}>
+                        <LeetCodeStats isBookLayout={true} />
+                    </div>
                 </section>
 
                 {/* 5. JOURNEY */}
-                <section id="journey" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)' }}>
-                    <Journey isBookLayout={true} />
+                <section id="journey" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+                    {/* Giant Watermark */}
+                    <div className={playfair.className} style={{ position: 'absolute', top: '5%', right: '-2%', fontSize: 'clamp(20rem, 40vw, 40rem)', lineHeight: '0.8', color: 'rgba(0,0,0,0.02)', fontWeight: '700', fontStyle: 'italic', pointerEvents: 'none', zIndex: 0 }}>
+                        05
+                    </div>
+                    <div style={{ position: 'relative', zIndex: 1, height: '100%' }}>
+                        <Journey isBookLayout={true} />
+                    </div>
                 </section>
 
                 {/* 6. PHILOSOPHY */}
-                <section id="philosophy" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)' }}>
-                    <div className="philosophy-grid pad-box" style={{ height: '100%', display: 'grid', alignItems: 'center' }}>
-                        <div>
-                            <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '1rem' }}>Chapter 06 — Philosophy</span>
-                            <div className="hide-on-mobile" style={{ fontSize: '0.75rem', fontFamily: 'monospace', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-secondary)', lineHeight: '2' }}>
-                                <div>Kurnool, Andhra Pradesh, India</div>
-                                <div>B.Tech Computer Science</div>
-                                <div>Full-Stack Engineering</div>
-                                <div>AI / ML Integration</div>
-                            </div>
+                <section id="philosophy" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
+                    {/* Giant Watermark */}
+                    <div className={playfair.className} style={{ position: 'absolute', top: '5%', right: '-2%', fontSize: 'clamp(20rem, 40vw, 40rem)', lineHeight: '0.8', color: 'rgba(0,0,0,0.02)', fontWeight: '700', fontStyle: 'italic', pointerEvents: 'none', zIndex: 0 }}>
+                        06
+                    </div>
+                    <div className="pad-box" style={{ position: 'relative', zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingBottom: '8rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '4rem' }}>
+                            <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-secondary)' }} />
+                            <span style={{ fontSize: '0.85rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+                                Chapter 06 // Philosophy
+                            </span>
                         </div>
-                        <blockquote style={{ fontSize: 'clamp(1.5rem, 4vw, 3.5rem)', fontWeight: '800', letterSpacing: '-0.03em', lineHeight: '1.2', color: 'var(--text-primary)', margin: 0, borderLeft: '3px solid var(--text-primary)', paddingLeft: '1.5rem' }}>
-                            &quot;I care about every detail — from clean architecture to pixel-perfect UI — turning ambitious ideas into{' '}
-                            <span style={{ color: 'transparent', WebkitTextStroke: '1px var(--text-primary)' }}>products people can trust.</span>&quot;
-                        </blockquote>
+                        
+                        <div style={{ maxWidth: '1000px' }}>
+                            <h2 className={playfair.className} style={{ fontSize: 'clamp(3.5rem, 7vw, 6.5rem)', fontWeight: '400', lineHeight: '1', color: 'var(--text-primary)', margin: '0 0 2.5rem 0', letterSpacing: '-0.03em' }}>
+                                Obsessed with <br/>
+                                <span style={{ color: '#6d3f52', fontStyle: 'italic' }}>the details.</span>
+                            </h2>
+                            
+                            <p style={{ fontSize: '1.2rem', lineHeight: '1.7', color: 'var(--text-secondary)', maxWidth: '600px', fontWeight: '400' }}>
+                                I care about every single layer of a project. From clean, robust backend architecture to pixel-perfect, intuitive user interfaces—my philosophy is simple: turn ambitious ideas into products people trust.
+                            </p>
+                        </div>
                     </div>
                 </section>
 
                 {/* 7. EPILOGUE (To Be Continued) */}
-                <section id="epilogue" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ textAlign: 'center', padding: '2rem' }}>
-                        <span style={{ fontSize: '0.85rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '2rem' }}>To Be Continued</span>
-                        <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', fontWeight: '900', letterSpacing: '-0.03em', lineHeight: '1.2', color: 'var(--text-primary)', maxWidth: '900px', margin: '0 auto' }}>
-                            This journey is continuously evolving. <br/><span style={{ color: 'transparent', WebkitTextStroke: '1px var(--text-primary)' }}>The next chapters are currently being written.</span>
+                <section id="epilogue" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+                    {/* Giant Watermark */}
+                    <div className={playfair.className} style={{ position: 'absolute', top: '5%', right: '-2%', fontSize: 'clamp(20rem, 40vw, 40rem)', lineHeight: '0.8', color: 'rgba(0,0,0,0.02)', fontWeight: '700', fontStyle: 'italic', pointerEvents: 'none', zIndex: 0 }}>
+                        07
+                    </div>
+                    <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '2rem', paddingBottom: '8rem', width: '100%' }}>
+                        <span style={{ fontSize: '0.75rem', fontFamily: 'monospace', fontWeight: '600', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '2rem' }}>// Epilogue</span>
+                        <h2 className={playfair.className} style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: '400', fontStyle: 'italic', color: '#6d3f52', maxWidth: '900px', margin: '0 auto', lineHeight: '1', marginBottom: '4rem' }}>
+                            The next chapters are currently being written.
                         </h2>
                     </div>
                 </section>

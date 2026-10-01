@@ -76,7 +76,7 @@ export default function CertificatesPage() {
                             >
                                 <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-secondary)' }} />
                                 <span style={{ fontSize: '0.85rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
-                                    02 — Credentials
+                                    Credentials
                                 </span>
                             </motion.div>
                             <motion.h1 

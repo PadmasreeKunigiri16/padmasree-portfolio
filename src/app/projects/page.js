@@ -33,6 +33,24 @@ const projects = [
         desc: 'Developed frontend screens and integrated backend APIs for core features including accountability challenges, Stake Battles, ProofIQ verification, and analytical dashboards.',
         tech: ['Frontend', 'Testing'],
         github: 'https://github.com/SaiDheeraj-19/StakeUp'
+    },
+    {
+        id: '04',
+        title: 'KeybodVisual',
+        subtitle: 'Keyboard Visualization Tool',
+        meta: 'Interactive UI',
+        desc: 'Built an interactive, visually stunning keyboard mapping and typing visualization tool to help users track keystrokes and optimize their typing workflows.',
+        tech: ['TypeScript', 'React'],
+        github: 'https://github.com/PadmasreeKunigiri16/keybodvisual'
+    },
+    {
+        id: '05',
+        title: 'Flavour-Quest',
+        subtitle: 'Culinary Discovery App',
+        meta: 'Web App',
+        desc: 'Developed a rich, interactive web application that allows users to discover, save, and explore culinary recipes and flavor profiles from around the globe.',
+        tech: ['JavaScript', 'API Integration'],
+        github: 'https://github.com/PadmasreeKunigiri16/Flavour-Quest'
     }
 ];
 
@@ -68,10 +86,11 @@ export default function ProjectsPage() {
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '2rem' }}>
                         {projects.map((proj, index) => {
-                            // Asymmetric grid spanning
-                            const colSpanDesktop = index === 0 ? 'span 7' : index === 1 ? 'span 5' : 'span 12';
-                            const minHeight = index === 0 ? '550px' : index === 1 ? '550px' : '400px';
-                            const bg = index === 0 ? '#ebe6df' : index === 1 ? '#e1dcd5' : '#d8d3cc';
+                            // Asymmetric grid spanning (7, 5, 12, 5, 7)
+                            const colSpanDesktop = (index === 0 || index === 4) ? 'span 7' : (index === 1 || index === 3) ? 'span 5' : 'span 12';
+                            const minHeight = index === 2 ? '400px' : '550px';
+                            const bgColors = ['#ebe6df', '#e1dcd5', '#d8d3cc', '#e1dcd5', '#ebe6df'];
+                            const bg = bgColors[index % bgColors.length];
 
                             return (
                                 <div 

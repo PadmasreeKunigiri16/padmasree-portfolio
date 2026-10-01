@@ -45,12 +45,12 @@ export default function Loader() {
                         style={{ display: 'inline-block' }}
                     >
                         <img 
-                            src="/signature.png" 
+                            src="/signature-new.png" 
                             alt="Padmasree Kunigiri" 
                             style={{ 
                                 height: 'clamp(6rem, 15vw, 12rem)',
                                 objectFit: 'contain',
-                                mixBlendMode: 'multiply',
+                                filter: 'brightness(0)',
                                 display: 'block'
                             }} 
                         />
