@@ -287,28 +287,48 @@ export default function About() {
                 {/* 3. EDUCATION */}
                 <section id="education" style={{ ...pageStyle, borderRight: '1px solid var(--border-color)' }}>
                     <div className="pad-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                        <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '1.5rem' }}>Chapter 03 — Education</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '4rem' }}>
+                            <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-secondary)' }} />
+                            <span style={{ fontSize: '0.85rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+                                Chapter 03 — Education
+                            </span>
+                        </div>
                         
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0', maxWidth: '1000px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0', maxWidth: '1200px', width: '100%', borderTop: '2px solid var(--text-primary)' }}>
                             {[
                                 { institution: 'Ravindra College of Engineering', degree: 'B.Tech CSE', cgpa: '9.0', year: 'Present', current: true },
                                 { institution: 'Jawahar Navodaya Vidyalaya', degree: 'Intermediate (CBSE)', cgpa: '8.0', year: '2022', current: false },
                                 { institution: 'Jawahar Navodaya Vidyalaya', degree: 'Secondary (CBSE)', cgpa: '9.1', year: '2020', current: false },
                             ].map((edu, idx, arr) => (
-                                <div key={idx} className="edu-grid" style={{
-                                    display: 'grid', alignItems: 'center',
+                                <div key={idx} style={{
+                                    display: 'flex', 
+                                    justifyContent: 'space-between', 
+                                    alignItems: 'center',
+                                    padding: '3.5rem 0',
                                     borderBottom: idx < arr.length - 1 ? '1px solid var(--border-color)' : 'none',
+                                    gap: '2rem'
                                 }}>
-                                    <div>
-                                        <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>{edu.year}</div>
+                                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '4rem', flex: 1 }}>
+                                        <div style={{ fontSize: '1rem', fontFamily: 'monospace', fontWeight: '600', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-secondary)', minWidth: '100px' }}>
+                                            {edu.year}
+                                        </div>
+                                        <div>
+                                            <h3 className={playfair.className} style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: '400', color: 'var(--text-primary)', margin: '0 0 1rem 0', lineHeight: '1' }}>
+                                                {edu.institution}
+                                            </h3>
+                                            <div style={{ fontSize: '0.85rem', fontWeight: '700', letterSpacing: '0.15em', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
+                                                [ {edu.degree} ]
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-primary)', letterSpacing: '-0.02em', marginBottom: '0.25rem' }}>{edu.institution}</div>
-                                        <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontStyle: 'italic' }}>{edu.degree}</div>
-                                    </div>
-                                    <div className="edu-right">
-                                        <div style={{ fontSize: '2.5rem', fontWeight: '900', letterSpacing: '-0.05em', lineHeight: 1, color: 'var(--text-primary)' }}>{edu.cgpa}</div>
-                                        <div style={{ fontSize: '0.6rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>CGPA</div>
+                                    
+                                    <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
+                                        <div className={playfair.className} style={{ fontSize: 'clamp(3.5rem, 6vw, 5.5rem)', fontWeight: '400', fontStyle: 'italic', color: '#6d3f52', lineHeight: '0.8', margin: 0 }}>
+                                            {edu.cgpa}
+                                        </div>
+                                        <div style={{ fontSize: '0.75rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginTop: '1.2rem' }}>
+                                            CGPA
+                                        </div>
                                     </div>
                                 </div>
                             ))}
