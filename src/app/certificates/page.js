@@ -90,7 +90,7 @@ export default function CertificatesPage() {
                                     fontStyle: 'italic',
                                     letterSpacing: '-0.02em', 
                                     lineHeight: '0.9', 
-                                    color: 'var(--text-primary)', 
+                                    color: '#6d3f52', 
                                     margin: 0
                                 }}
                             >

@@ -1,16 +1,23 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { Playfair_Display } from 'next/font/google';
+
+const playfair = Playfair_Display({ subsets: ['latin'], style: ['italic', 'normal'] });
 
 function StatBar({ label, value, total, color }) {
     const pct = total > 0 ? Math.round((value / total) * 100) : 0;
     return (
-        <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '500' }}>{label}</span>
-                <span style={{ fontSize: '0.8rem', fontWeight: '700', color: 'var(--text-primary)' }}>{value}</span>
+        <div style={{ width: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '1rem' }}>
+                <span style={{ fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                    {label}
+                </span>
+                <span className={playfair.className} style={{ fontSize: '2.5rem', fontStyle: 'italic', color: 'var(--text-primary)', lineHeight: '1' }}>
+                    {value}
+                </span>
             </div>
-            <div style={{ height: '4px', background: 'var(--border-color)', borderRadius: '2px', overflow: 'hidden' }}>
-                <div style={{ width: `${pct}%`, height: '100%', background: color, borderRadius: '2px', transition: 'width 1s ease' }} />
+            <div style={{ height: '1px', background: 'var(--border-color)', width: '100%', position: 'relative' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, width: `${pct}%`, height: '2px', background: color, transition: 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1)' }} />
             </div>
         </div>
     );
@@ -33,87 +40,102 @@ export default function LeetCodeStats({ isBookLayout }) {
     }, []);
 
     const wrapperStyle = isBookLayout 
-        ? { minHeight: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }
+        ? { minHeight: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }
         : { borderBottom: '1px solid var(--border-color)' };
 
     return (
         <section className={isBookLayout ? 'stats-pad-box' : 'stats-default-pad'} style={wrapperStyle}>
+            
             {/* Header */}
-            <div className="stats-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '3rem' }}>
-                <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
-                    LeetCode — Live Stats
-                </span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-secondary)' }} />
+                    <span style={{ fontSize: '0.85rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>
+                        Live Statistics
+                    </span>
+                </div>
                 <a
                     href="https://leetcode.com/u/padmasree16_kunigiri/"
                     target="_blank" rel="noreferrer"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', color: 'var(--text-secondary)', fontFamily: 'monospace', letterSpacing: '0.1em', textDecoration: 'none', border: '1px solid var(--border-color)', borderRadius: '2rem', padding: '0.35rem 0.9rem' }}
+                    style={{ 
+                        display: 'inline-flex', alignItems: 'center', gap: '0.5rem', 
+                        fontSize: '0.75rem', color: 'var(--text-secondary)', fontFamily: 'monospace', 
+                        letterSpacing: '0.1em', textDecoration: 'none', 
+                        border: '1px solid var(--border-color)', borderRadius: '2rem', padding: '0.5rem 1.2rem',
+                        transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--text-primary)'; e.currentTarget.style.color = 'var(--text-primary)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.color = 'var(--text-secondary)'; }}
                 >
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    padmasree16_kunigiri
+                    LeetCode Profile ↗
                 </a>
             </div>
 
             {loading && (
-                <div style={{ display: 'flex', gap: '1.5rem' }}>
-                    {[1,2,3,4].map(i => (
-                        <div key={i} style={{ flex: 1, height: '120px', background: 'var(--border-color)', borderRadius: '1rem', animation: 'pulse 1.5s ease infinite alternate' }} />
-                    ))}
-                    <style>{`@keyframes pulse { from { opacity: 0.4 } to { opacity: 0.8 } }`}</style>
+                <div style={{ display: 'flex', gap: '2rem', height: '300px', alignItems: 'center' }}>
+                    <div style={{ flex: 1, height: '100%', background: 'var(--border-color)', borderRadius: '1rem', animation: 'pulse 1.5s ease infinite alternate' }} />
+                    <div style={{ flex: 1, height: '100%', background: 'var(--border-color)', borderRadius: '1rem', animation: 'pulse 1.5s ease infinite alternate', animationDelay: '0.2s' }} />
+                    <style>{`@keyframes pulse { from { opacity: 0.2 } to { opacity: 0.6 } }`}</style>
                 </div>
             )}
 
             {error && (
-                <div style={{ padding: '2rem', border: '1px dashed var(--border-color)', borderRadius: '1rem', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                    Could not load LeetCode data — <a href="https://leetcode.com/u/padmasree16_kunigiri/" target="_blank" rel="noreferrer" style={{ color: 'var(--text-primary)', fontWeight: '600' }}>view profile directly ↗</a>
+                <div style={{ padding: '3rem', border: '1px solid var(--border-color)', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '1rem' }}>
+                    Data temporarily unavailable. <a href="https://leetcode.com/u/padmasree16_kunigiri/" target="_blank" rel="noreferrer" style={{ color: 'var(--text-primary)', fontWeight: '600' }}>View directly ↗</a>
                 </div>
             )}
 
             {stats && !loading && (
-                <div className="stats-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
-                    {/* Left: Big numbers */}
-                    <div className="stats-numbers" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                        {[
-                            { label: 'Total Solved', value: stats.totalSolved, sub: 'Problems' },
-                            { label: 'Global Rank', value: `#${stats.ranking?.toLocaleString()}`, sub: 'Ranking' },
-                            { label: 'Easy', value: stats.easySolved, sub: 'Solved' },
-                            { label: 'Hard', value: stats.hardSolved, sub: 'Solved' },
-                        ].map(item => (
-                            <div key={item.label} style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '1rem', background: 'rgba(0,0,0,0.01)' }}>
-                                <div style={{ fontSize: '0.6rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>{item.label}</div>
-                                <div style={{ fontSize: '2rem', fontWeight: '900', letterSpacing: '-0.04em', lineHeight: 1, color: 'var(--text-primary)' }}>{item.value}</div>
-                                <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>{item.sub}</div>
+                <div className="stats-layout" style={{ display: 'flex', gap: '6rem', alignItems: 'center' }}>
+                    
+                    {/* Left: Massive Total Typography */}
+                    <div style={{ flex: '1.2', display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ fontSize: '0.85rem', fontWeight: '800', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>
+                            Total Problems Solved
+                        </span>
+                        
+                        <div className={playfair.className} style={{ 
+                            fontSize: 'clamp(6rem, 15vw, 15rem)', 
+                            fontWeight: '400',
+                            fontStyle: 'italic',
+                            color: '#6d3f52', // Plum color to match Experience/Certificates
+                            lineHeight: '1',
+                            margin: '1rem 0 2rem -1rem' // Slight negative margin to optically align the italic text
+                        }}>
+                            {stats.totalSolved}
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                            <div style={{ padding: '0.5rem 1.2rem', border: '1px solid var(--border-color)', borderRadius: '2rem', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.1em', color: 'var(--text-primary)' }}>
+                                Rank #{stats.ranking?.toLocaleString()}
                             </div>
-                        ))}
+                            <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', maxWidth: '250px' }}>
+                                Consistently refining algorithmic thinking and data structure optimization.
+                            </span>
+                        </div>
                     </div>
 
-                    {/* Right: Difficulty bars */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '2rem', border: '1px solid var(--border-color)', borderRadius: '1rem' }}>
-                        <div style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Difficulty Breakdown</div>
-                        <StatBar label="Easy"   value={stats.easySolved}   total={stats.totalSolved} color="#22c55e" />
-                        <StatBar label="Medium" value={stats.mediumSolved} total={stats.totalSolved} color="#f59e0b" />
-                        <StatBar label="Hard"   value={stats.hardSolved}   total={stats.totalSolved} color="#ef4444" />
-                        <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Total Solved</span>
-                            <span style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-primary)' }}>{stats.totalSolved}</span>
-                        </div>
+                    {/* Right: Elegant Difficulty Breakdown */}
+                    <div style={{ flex: '1', display: 'flex', flexDirection: 'column', gap: '3rem', borderLeft: '1px solid var(--border-color)', paddingLeft: '4rem' }} className="stats-breakdown">
+                        <StatBar label="Easy" value={stats.easySolved} total={stats.totalSolved} color="var(--text-secondary)" />
+                        <StatBar label="Medium" value={stats.mediumSolved} total={stats.totalSolved} color="var(--text-primary)" />
+                        <StatBar label="Hard" value={stats.hardSolved} total={stats.totalSolved} color="#6d3f52" />
                     </div>
                 </div>
             )}
 
             <style jsx>{`
                 .stats-pad-box { padding: 0 6rem; }
-                .stats-default-pad { padding: 5rem 6rem; }
+                .stats-default-pad { padding: 6rem 6rem; }
+
+                @media (max-width: 1024px) {
+                    .stats-layout { flex-direction: column !important; align-items: flex-start !important; gap: 4rem !important; }
+                    .stats-breakdown { border-left: none !important; padding-left: 0 !important; width: 100%; border-top: 1px solid var(--border-color); padding-top: 4rem; }
+                }
 
                 @media (max-width: 768px) {
-                    .stats-pad-box { padding: 2rem !important; }
-                    .stats-default-pad { padding: 2rem !important; }
-                    .stats-layout { grid-template-columns: 1fr !important; gap: 2rem !important; }
-                    .stats-numbers { grid-template-columns: 1fr 1fr !important; }
-                    .stats-header { flex-direction: column; align-items: flex-start !important; gap: 1.5rem; marginBottom: 2rem !important; }
-                }
-                
-                @media (max-width: 480px) {
-                    .stats-numbers { grid-template-columns: 1fr !important; }
+                    .stats-pad-box { padding: 3rem 2rem !important; }
+                    .stats-default-pad { padding: 4rem 2rem !important; }
                 }
             `}</style>
         </section>
