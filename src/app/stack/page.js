@@ -2,9 +2,11 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { Playfair_Display } from 'next/font/google';
+import { Playfair_Display, Inter } from 'next/font/google';
+import { motion } from 'framer-motion';
 
-const playfair = Playfair_Display({ weight: ['400', '700', '800'], subsets: ['latin'], display: 'swap', style: ['normal', 'italic'] });
+const playfair = Playfair_Display({ weight: ['400', '700', '800', '900'], subsets: ['latin'], display: 'swap', style: ['normal', 'italic'] });
+const inter = Inter({ weight: ['300', '400', '500', '600', '700'], subsets: ['latin'], display: 'swap' });
 
 const reasons = [
     {
@@ -123,90 +125,147 @@ const reasons = [
 
 export default function StackPage() {
     return (
-        <>
+        <div className={inter.className} style={{ backgroundColor: '#f5f1ec', minHeight: '100vh', color: '#111' }}>
             <Navbar />
-            <main style={{ paddingTop: '80px', backgroundColor: 'var(--bg-primary)', minHeight: '100vh' }}>
-
-                {/* Hero */}
-                <section style={{ padding: '8rem 6rem 6rem', borderBottom: '1px solid var(--border-color)', position: 'relative', overflow: 'hidden' }}>
-                    <div className="stack-hero-bg desktop-only" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', fontSize: '18vw', fontWeight: '900', color: 'var(--text-primary)', opacity: 0.05, whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none', letterSpacing: '-0.05em' }}>WHY</div>
-                    <div style={{ maxWidth: '900px', position: 'relative', zIndex: 10 }}>
-                        <Link href="/#stack" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-secondary)', textDecoration: 'none', marginBottom: '2.5rem', transition: 'color 0.2s ease' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--text-primary)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                            Back to Tech Stack
+            
+            <main style={{ paddingTop: '80px', paddingBottom: '120px', overflow: 'hidden' }}>
+                
+                {/* Hero Section */}
+                <section style={{ padding: '2rem 5% 0', position: 'relative' }}>
+                    
+                    <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+                        <Link href="/#stack" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.15em', color: '#888', textDecoration: 'none', marginBottom: '3rem', borderBottom: '1px solid transparent', transition: 'all 0.3s ease' }} onMouseEnter={e => { e.currentTarget.style.color = '#111'; e.currentTarget.style.borderBottomColor = '#111'; }} onMouseLeave={e => { e.currentTarget.style.color = '#888'; e.currentTarget.style.borderBottomColor = 'transparent'; }}>
+                            ← Return
                         </Link>
-                        <h1 className={playfair.className} style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', fontWeight: '400', fontStyle: 'italic', letterSpacing: '-0.02em', lineHeight: '1.0', color: '#6d3f52', marginBottom: '2rem', textTransform: 'capitalize' }}>
-                            Why I chose<br/>
-                            this stack.
-                        </h1>
-                        <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.8', maxWidth: '700px' }}>
-                            I don&apos;t use technologies just because they&apos;re trendy. Every tool here was carefully selected because it is <strong>better suited for modern development</strong> and <strong>helpful in solving real-world problems reliably</strong>. From frontend interfaces to backend automation, here is exactly why I rely on these technologies to engineer products people can trust.
-                        </p>
+                        
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', maxWidth: '1000px' }}>
+                            <h1 className={playfair.className} style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)', fontWeight: '400', letterSpacing: '-0.02em', lineHeight: '0.95', color: '#111', margin: 0 }}>
+                                The Logic Behind <br />
+                                <span style={{ color: '#6d3f52', fontStyle: 'italic' }}>The Code.</span>
+                            </h1>
+                            
+                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '2rem', paddingTop: '1rem' }}>
+                                <div style={{ width: '60px', height: '1px', backgroundColor: 'rgba(0,0,0,0.2)', marginTop: '0.8rem' }} />
+                                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.8', margin: 0, maxWidth: '550px' }}>
+                                    I don&apos;t use technologies just because they&apos;re trendy. Every tool here was carefully selected because it is better suited for modern development and solves real-world problems reliably.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
-                {/* Tech cards */}
-                <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '6rem 4rem' }}>
-                    <div className="stack-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: '2rem' }}>
-                        {reasons.map((tech) => (
-                            <div key={tech.name} style={{
-                                border: '1px solid var(--border-color)',
-                                borderRadius: '1.25rem',
-                                padding: '2.5rem',
-                                background: 'rgba(0,0,0,0.01)',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '2rem',
-                                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                            }}
-                                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--text-primary)'; e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.boxShadow = 'none'; }}
-                            >
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                                    <div style={{ flexShrink: 0, width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-secondary)', borderRadius: '1rem', border: '1px solid var(--border-color)' }}>
-                                        <img src={tech.logo} alt={tech.name} style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
-                                    </div>
-                                    <div>
-                                        <h3 style={{ fontSize: '1.5rem', fontWeight: '900', color: 'var(--text-primary)', letterSpacing: '-0.02em', marginBottom: '0.25rem' }}>{tech.name}</h3>
-                                        <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>{tech.category}</span>
-                                    </div>
-                                </div>
-                                
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                                    <div>
-                                        <div style={{ fontSize: '0.7rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                            <span style={{ color: '#3b82f6' }}>■</span> Why I chose this
+                <div style={{ height: '8rem' }} />
+
+                {/* The Tech List - Asymmetrical Editorial Layout */}
+                <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
+                        {reasons.map((tech, i) => {
+                            const isEven = i % 2 === 0;
+                            return (
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    key={tech.name} 
+                                    className="tech-block"
+                                    style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: 'repeat(12, 1fr)',
+                                        gap: '4rem',
+                                        alignItems: 'center'
+                                    }}
+                                >
+                                    {/* Logo & Title Block */}
+                                    <div style={{
+                                        gridColumn: isEven ? '1 / 6' : '8 / 13',
+                                        gridRow: 1,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        order: isEven ? 1 : 2
+                                    }}>
+                                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem', marginBottom: '2.5rem' }}>
+                                            <span style={{ fontSize: '1rem', fontFamily: 'monospace', fontWeight: '600', color: '#888' }}>
+                                                {String(i + 1).padStart(2, '0')}
+                                            </span>
+                                            <div style={{ width: '70px', height: '70px', background: '#fff', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.02)' }}>
+                                                <img src={tech.logo} alt={tech.name} style={{ width: '35px', height: '35px', objectFit: 'contain' }} />
+                                            </div>
                                         </div>
-                                        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{tech.whyChose}</p>
+                                        <h3 className={playfair.className} style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: '800', color: '#111', letterSpacing: '-0.04em', lineHeight: '0.9', margin: '0 0 1rem 0' }}>
+                                            {tech.name}
+                                        </h3>
+                                        <span style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#6d3f52' }}>
+                                            {tech.category}
+                                        </span>
                                     </div>
-                                    <div>
-                                        <div style={{ fontSize: '0.7rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                            <span style={{ color: '#10b981' }}>■</span> Why it&apos;s better
+
+                                    {/* Descriptions Block */}
+                                    <div style={{
+                                        gridColumn: isEven ? '6 / 13' : '1 / 8',
+                                        gridRow: 1,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '3rem',
+                                        order: isEven ? 2 : 1,
+                                        padding: '4rem',
+                                        backgroundColor: 'rgba(255,255,255,0.4)',
+                                        border: '1px solid rgba(0,0,0,0.05)',
+                                        borderRadius: '1.5rem',
+                                        boxShadow: 'inset 0 0 20px rgba(255,255,255,0.5)'
+                                    }}>
+                                        <div>
+                                            <h4 style={{ fontSize: '0.7rem', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#888', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                                <span style={{ display: 'inline-block', width: '30px', height: '1px', backgroundColor: '#888' }}></span> Why I chose it
+                                            </h4>
+                                            <p style={{ fontSize: '1.25rem', color: '#111', lineHeight: '1.6', fontWeight: '400', fontStyle: 'italic', fontFamily: 'Georgia, serif' }}>"{tech.whyChose}"</p>
                                         </div>
-                                        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{tech.whyBetter}</p>
-                                    </div>
-                                    <div>
-                                        <div style={{ fontSize: '0.7rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                            <span style={{ color: '#8b5cf6' }}>■</span> How it&apos;s helpful
+                                        
+                                        <div className="details-subgrid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
+                                            <div>
+                                                <h4 style={{ fontSize: '0.65rem', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#888', marginBottom: '1rem' }}>
+                                                    Why it's better
+                                                </h4>
+                                                <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: '1.7' }}>{tech.whyBetter}</p>
+                                            </div>
+                                            <div>
+                                                <h4 style={{ fontSize: '0.65rem', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#888', marginBottom: '1rem' }}>
+                                                    How it's helpful
+                                                </h4>
+                                                <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: '1.7' }}>{tech.howHelpful}</p>
+                                            </div>
                                         </div>
-                                        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{tech.howHelpful}</p>
                                     </div>
-                                </div>
-                            </div>
-                        ))}
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </section>
             </main>
             
             <style>{`
-                @media (max-width: 768px) {
-                    section { padding-left: 2rem !important; padding-right: 2rem !important; }
-                    .stack-grid { grid-template-columns: 1fr !important; }
-                    .stack-hero-bg { font-size: 30vw !important; }
+                @media (max-width: 1024px) {
+                    .hero-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+                    .tech-block {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        align-items: flex-start !important;
+                        gap: 3rem !important;
+                    }
+                    .tech-block > div {
+                        width: 100% !important;
+                        order: unset !important;
+                    }
+                    .tech-block > div:nth-child(2) {
+                        padding: 2.5rem !important;
+                    }
+                }
+                @media (max-width: 600px) {
+                    .details-subgrid { grid-template-columns: 1fr !important; gap: 2rem !important; }
                 }
             `}</style>
             
             <Footer />
-        </>
+        </div>
     );
 }

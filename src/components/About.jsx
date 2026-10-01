@@ -172,13 +172,8 @@ export default function About() {
                             {/* Subtle overlay to soften the background image */}
                             <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(245,241,236,0.4)', zIndex: 0 }} />
 
-                            {/* The Portrait */}
-                            <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', height: '88%', width: '100%', zIndex: 1, display: 'flex', justifyContent: 'center' }}>
-                                <img src="/bg1.png" alt="Padmasree Kunigiri" style={{ height: '100%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom center', filter: 'drop-shadow(0px 15px 40px rgba(0,0,0,0.2))' }} />
-                            </div>
-
-                            {/* The Signature (From Uploaded Image) */}
-                            <div style={{ position: 'absolute', top: '25%', right: '8%', zIndex: 2, pointerEvents: 'none', width: '35vw', maxWidth: '450px', transform: 'rotate(-3deg)' }}>
+                            {/* The Signature (From Uploaded Image) - PLACED BEHIND PORTRAIT */}
+                            <div className="cover-signature" style={{ position: 'absolute', top: '20%', right: '5%', zIndex: 1, pointerEvents: 'none', width: '40vw', maxWidth: '500px', transform: 'rotate(-3deg)' }}>
                                 <img src="/signature-transparent.png" alt="Padmasree Signature" style={{ width: '100%', height: 'auto', filter: 'brightness(0) opacity(0.85)' }} />
                                 {/* Organic Curved Purple Underline */}
                                 <svg style={{ position: 'absolute', bottom: '16%', left: '2%', width: '95%', height: '40px', overflow: 'visible', pointerEvents: 'none' }} viewBox="0 0 100 20" preserveAspectRatio="none">
@@ -193,24 +188,27 @@ export default function About() {
                                 </svg>
                             </div>
 
+                            {/* The Portrait */}
+                            <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', height: '88%', width: '100%', zIndex: 2, display: 'flex', justifyContent: 'center' }}>
+                                <img src="/bg1.png" alt="Padmasree Kunigiri" style={{ height: '100%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom center', filter: 'drop-shadow(0px 15px 40px rgba(0,0,0,0.2))' }} />
+                            </div>
+
                             {/* Foreground Content (IN FRONT of everything) */}
-                            <div style={{ position: 'relative', zIndex: 3, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '2.5rem', pointerEvents: 'none' }}>
+                            <div className="cover-foreground" style={{ position: 'relative', zIndex: 3, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '2.5rem', pointerEvents: 'none' }}>
                                 
                                 {/* Refined Top Bar with Micro-typography */}
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                <div className="cover-top-bar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                                         <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>Chapter 01</span>
                                         <span style={{ fontSize: '0.55rem', fontFamily: 'monospace', fontWeight: '500', letterSpacing: '0.1em', color: 'var(--text-secondary)' }}>Updated 2026</span>
                                     </div>
-                                    
-                                    {/* Removed top right text to keep it ultra minimal */}
                                 </div>
 
                                 {/* Bottom Content Area */}
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '3rem' }}>
+                                <div className="cover-bottom-area" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '3rem' }}>
                                     
                                     {/* Minimal Floating Paragraph */}
-                                    <div style={{ maxWidth: '400px', pointerEvents: 'auto', paddingLeft: '1.5rem', borderLeft: '1.5px solid rgba(109,63,82,0.3)' }}>
+                                    <div className="cover-text-box" style={{ maxWidth: '400px', pointerEvents: 'auto', paddingLeft: '1.5rem', borderLeft: '1.5px solid rgba(109,63,82,0.3)' }}>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
                                             <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>Full-Stack</span>
                                             <div style={{ width: '4px', height: '4px', backgroundColor: '#6d3f52', borderRadius: '50%' }} />
@@ -468,6 +466,33 @@ export default function About() {
                         justify-content: flex-start !important;
                     }
                     .toc-nav button { font-size: 0.65rem !important; }
+
+                    /* Cover Page Mobile Fixes */
+                    .cover-signature {
+                        top: 5% !important;
+                        right: -10% !important;
+                        width: 80vw !important;
+                    }
+                    .cover-foreground {
+                        padding: 1.5rem !important;
+                        justify-content: flex-end !important;
+                    }
+                    .cover-top-bar {
+                        position: absolute;
+                        top: 1.5rem;
+                        left: 1.5rem;
+                        right: 1.5rem;
+                    }
+                    .cover-bottom-area {
+                        flex-direction: column !important;
+                        align-items: flex-start !important;
+                        gap: 2rem !important;
+                        background: linear-gradient(to top, rgba(245,241,236,1) 30%, rgba(245,241,236,0.8) 60%, transparent 100%) !important;
+                        width: calc(100% + 3rem) !important;
+                        margin-left: -1.5rem !important;
+                        margin-bottom: -1.5rem !important;
+                        padding: 8rem 1.5rem 1.5rem 1.5rem !important;
+                    }
                 }
                 
                 @keyframes swipeHint {

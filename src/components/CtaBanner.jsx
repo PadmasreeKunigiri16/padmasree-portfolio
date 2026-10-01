@@ -20,26 +20,6 @@ export default function CtaBanner() {
 
             <div style={{ position: 'relative', zIndex: 1, padding: '7rem 6% 4rem 6%', minHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
                 
-                {/* WATERMARK */}
-                <div className="desktop-only" style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    fontSize: 'clamp(5rem, 20vw, 24rem)',
-                    fontWeight: 900,
-                    color: 'transparent',
-                    WebkitTextStroke: '1.5px rgba(0,0,0,0.04)',
-                    pointerEvents: 'none',
-                    letterSpacing: '-0.02em',
-                    whiteSpace: 'nowrap',
-                    zIndex: 0,
-                    lineHeight: 1,
-                    textAlign: 'center'
-                }}>
-                    CONNECT
-                </div>
-
                 {/* CONTENT WRAPPER */}
                 <div style={{ position: 'relative', zIndex: 10, flex: 1, display: 'flex', flexDirection: 'column' }}>
                     
