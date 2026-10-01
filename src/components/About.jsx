@@ -304,29 +304,29 @@ export default function About() {
                                     display: 'flex', 
                                     justifyContent: 'space-between', 
                                     alignItems: 'center',
-                                    padding: '3.5rem 0',
+                                    padding: '2rem 0',
                                     borderBottom: idx < arr.length - 1 ? '1px solid var(--border-color)' : 'none',
                                     gap: '2rem'
                                 }}>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '4rem', flex: 1 }}>
-                                        <div style={{ fontSize: '1rem', fontFamily: 'monospace', fontWeight: '600', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-secondary)', minWidth: '100px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '3rem', flex: 1 }}>
+                                        <div style={{ fontSize: '0.85rem', fontFamily: 'monospace', fontWeight: '600', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-secondary)', minWidth: '80px' }}>
                                             {edu.year}
                                         </div>
                                         <div>
-                                            <h3 className={playfair.className} style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: '400', color: 'var(--text-primary)', margin: '0 0 1rem 0', lineHeight: '1' }}>
+                                            <h3 className={playfair.className} style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: '600', color: 'var(--text-primary)', margin: '0 0 0.5rem 0', lineHeight: '1.2' }}>
                                                 {edu.institution}
                                             </h3>
-                                            <div style={{ fontSize: '0.85rem', fontWeight: '700', letterSpacing: '0.15em', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
-                                                [ {edu.degree} ]
+                                            <div style={{ fontSize: '0.8rem', fontWeight: '600', letterSpacing: '0.1em', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
+                                                {edu.degree}
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
-                                        <div className={playfair.className} style={{ fontSize: 'clamp(3.5rem, 6vw, 5.5rem)', fontWeight: '400', fontStyle: 'italic', color: '#6d3f52', lineHeight: '0.8', margin: 0 }}>
+                                        <div className={playfair.className} style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: '400', fontStyle: 'italic', color: '#6d3f52', lineHeight: '0.8', margin: 0 }}>
                                             {edu.cgpa}
                                         </div>
-                                        <div style={{ fontSize: '0.75rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginTop: '1.2rem' }}>
+                                        <div style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginTop: '0.8rem' }}>
                                             CGPA
                                         </div>
                                     </div>
