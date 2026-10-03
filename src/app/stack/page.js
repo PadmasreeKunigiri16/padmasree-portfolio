@@ -10,6 +10,14 @@ const inter = Inter({ weight: ['300', '400', '500', '600', '700'], subsets: ['la
 
 const reasons = [
     {
+        name: 'C++',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
+        category: 'Core Language',
+        whyChose: "I chose C++ as my primary language for performance-critical applications and mastering core computer science concepts.",
+        whyBetter: "It offers unparalleled control over memory and hardware, executing at lightning speed compared to interpreted languages.",
+        howHelpful: "It helps me build highly optimized logic and thoroughly understand deep system architectures, making me a fundamentally stronger engineer."
+    },
+    {
         name: 'JavaScript',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
         category: 'Core Language',
